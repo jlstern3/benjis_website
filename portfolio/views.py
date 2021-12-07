@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 
 def index(request):
-    return HttpResponse("All good on my end!")
+    return render(request, 'index.html')
