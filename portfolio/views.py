@@ -8,3 +8,6 @@ def new_blog_post(request):
     #     return redirect('/')
     # else: 
     return render(request, 'new_blog_post.html')
+
+def plant_details(request):
+    return render(request, 'plant_details.html')
