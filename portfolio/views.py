@@ -9,5 +9,12 @@ def new_blog_post(request):
     # else: 
     return render(request, 'new_blog_post.html')
 
+def grow (request): 
+    return render(request, 'grow.html')
+
 def plant_details(request):
     return render(request, 'plant_details.html')
+
+def houseplant_details(request):
+    return render(request, 'houseplant_details.html')
+
