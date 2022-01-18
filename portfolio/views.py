@@ -53,6 +53,9 @@ def new_blog_post(request):
 def grow (request): 
     return render(request, 'grow.html')
 
+def fruit_veg(request):
+    return render(request, 'fruit_veg.html')
+
 def plant_details(request):
     return render(request, 'plant_details.html')
 

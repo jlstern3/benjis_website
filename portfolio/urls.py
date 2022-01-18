@@ -11,4 +11,5 @@ urlpatterns=[
     path('plant_details', views.plant_details),
     path('houseplant_details', views.houseplant_details),
     path('grow', views.grow),
+    path('grow/veg', views.fruit_veg),
 ]
