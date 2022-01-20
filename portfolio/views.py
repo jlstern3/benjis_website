@@ -41,6 +41,10 @@ def login(request):
         messages.error(request, "Email or password are not correct.")
     return redirect('/')
 
+def logout(request):
+    request.session.flush()
+    return redirect('/')
+
 def home(request):
     return render(request, 'home.html')
 
