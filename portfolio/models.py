@@ -49,14 +49,14 @@ class User(models.Model):
     objects = UserManager()
 
 class Plant(models.Model):
-    users_growing = models.ManyToManyField(User, related_name = "growing_plants")
+    users_growing = models.ManyToManyField(User, related_name = "growing_plant")
     name = models.CharField(max_length = 45)
     latin_name = models.CharField(max_length = 45)
     sun = models.CharField(max_length = 45)
     water = models.CharField(max_length = 255)
     spacing = models.IntegerField()
     days_to_harvest = models.IntegerField()
-    pH = models.IntegerField()
+    pH = models.FloatField()
     planting = models.TextField(null = True)
     soil_reqs = models.TextField(null = True)
     planting = models.TextField(null = True)

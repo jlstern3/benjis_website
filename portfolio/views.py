@@ -27,7 +27,7 @@ def create_user(request):
                 password=pw_hash,
             )
             request.session['user_id'] = user.id 
-            return redirect('/main_page')
+            return redirect('/home')
     return redirect('/')
 
 def login(request):
@@ -37,7 +37,7 @@ def login(request):
             user = user_with_email[0]
             if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
                 request.session['user_id'] = user.id 
-                return redirect('/main_page')
+                return redirect('/home')
         messages.error(request, "Email or password are not correct.")
     return redirect('/')
 
