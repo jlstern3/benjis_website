@@ -59,6 +59,10 @@ def fruit_veg(request):
 def plant_details(request):
     return render(request, 'plant_details.html')
 
+
+def houseplants(request):
+    return render(request, 'houseplants.html')
+
 def houseplant_details(request):
     return render(request, 'houseplant_details.html')
 
