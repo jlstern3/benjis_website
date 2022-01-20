@@ -66,3 +66,6 @@ def houseplants(request):
 def houseplant_details(request):
     return render(request, 'houseplant_details.html')
 
+def landscaping(request):
+    return render(request, 'landscaping.html')
+
