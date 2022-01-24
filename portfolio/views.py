@@ -48,13 +48,23 @@ def logout(request):
 def home(request):
     return render(request, 'home.html')
 
+def profile(request, user_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    context={
+        'current_user' : User.objects.get(id = request.session['user_id']),
+        # 'all_challenges': Challenge.objects.all(),
+    }
+    return render(request, "profile.html", context)
+
 def new_blog_post(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     # else: 
     return render(request, 'new_blog_post.html')
 
-def grow (request): 
+
+def grow(request): 
     return render(request, 'grow.html')
 
 def fruit_veg(request):
