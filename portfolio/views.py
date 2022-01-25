@@ -57,11 +57,11 @@ def profile(request, user_id):
     }
     return render(request, "profile.html", context)
 
-def new_blog_post(request):
+def new_note(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     # else: 
-    return render(request, 'new_blog_post.html')
+    return render(request, 'notes.html')
 
 
 def grow(request): 
