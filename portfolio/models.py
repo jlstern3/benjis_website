@@ -49,7 +49,9 @@ class User(models.Model):
     objects = UserManager()
 
 class Plant(models.Model):
-    users_growing = models.ManyToManyField(User, related_name = "growing_plant")
+    # the related_name field becomes a new attribute of User class
+    # so growing_plants = list of plants the associated user is growing
+    users_growing = models.ManyToManyField(User, related_name = "growing_plants")
     name = models.CharField(max_length = 45)
     latin_name = models.CharField(max_length = 45)
     sun = models.CharField(max_length = 45)

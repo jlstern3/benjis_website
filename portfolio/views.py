@@ -46,7 +46,13 @@ def logout(request):
     return redirect('/')
 
 def home(request):
-    return render(request, 'home.html')
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    context={
+        'current_user' : User.objects.get(id=request.session['user_id']),
+    }
+    return render(request, "home.html", context)
+
 
 def profile(request, user_id):
     if 'user_id' not in request.session: 
