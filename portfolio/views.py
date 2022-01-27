@@ -78,7 +78,6 @@ def update_profile(request, user_id):
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect(f'/profile/{user_id}/edit')    
-            # instead of redirect, I want to extract form data into dictionary, send through context via render
         else:
             current_user = User.objects.get(id=user_id)
             current_user.first_name=request.POST['first_name']
