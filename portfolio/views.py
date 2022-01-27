@@ -102,14 +102,14 @@ def grow(request):
     return render(request, 'grow.html')
 
 def fruit_veg(request):
-    if 'user_id' not in request.session: 
-        return redirect('/')
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
     context={
-        'all_fruit_veg': Plant.objects.filter(category="fruit_veg"),
-        # 'current_user' : User.objects.get(id = request.session['user_id']),
-
+        'all_plants': Plant.objects.filter(category="fruit_veg"),
+        'current_user' : User.objects.get(id = request.session['user_id']),
     }
     return render(request, 'fruit_veg.html', context)
+
 
 def plant_details(request, plant_id):
     # if 'user_id' not in request.session: 

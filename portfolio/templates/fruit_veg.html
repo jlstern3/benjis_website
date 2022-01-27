@@ -13,8 +13,8 @@
 
     <h1>Vegetables and Fruit</h1>
     <h3>This will contain a list of fruits and vegetables</h3>
-    {% for plant in all_fruit_veg %}
-    <p>{{plant.name}}</p>
+    {% for plant in all_plants %}
+    <a href = "/grow/details/{{plant.id}}"><p>{{plant.name}}</p></a>
     {% endfor %}
 </body>
 </html>
