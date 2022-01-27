@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/profile/{{current_user.id}}/update" method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label margin-top: 1%;>First Name <input type=text name='first_name' value="{{current_user.first_name}}"
+                    style="margin-left:63px; margin-bottom: 0.5%"></label>
+        </div>
+        <div class="form-group row">
+            <label>Last Name <input type=text name='last_name' value="{{current_user.last_name}}"
+                    style="margin-left: 63px; margin-bottom: 0.5%"></label>
+        </div>
+        <div class="form-group row">
+            <label>Email <input type=text name='email' value="{{current_user.email}}"
+                    style="margin-left: 102px; margin-bottom: 0.5%"></label>
+        </div>
+        <div class="form-group row">
+            <label>Location <input type=text name='location' value="{{current_user.location}}"
+                    style="margin-left: 78px; margin-bottom: 0.5%"></label>
+        </div>
+        <button class="btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black;" type="submit"
+            value="Update Profile">Update Profile</button>
+
+    </form>
+</body>
+</html>

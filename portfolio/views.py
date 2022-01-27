@@ -63,6 +63,33 @@ def profile(request, user_id):
     }
     return render(request, "profile.html", context)
 
+def edit_profile(request, user_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    context={
+        'current_user' : User.objects.get(id = user_id),
+    }
+    return render(request, "edit_profile.html", context)
+
+def update_profile(request, user_id):
+    if request.method =="POST":
+        errors = User.objects.edit_validator(request.POST, user_id)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(f'/users/profile/{user_id}/edit')    
+            # instead of redirect, I want to extract form data into dictionary, send through context via render
+        else:
+            current_user = User.objects.get(id=user_id)
+            current_user.first_name=request.POST['first_name']
+            current_user.last_name=request.POST['last_name']
+            current_user.email=request.POST['email']
+            current_user.location=request.POST['location']
+            current_user.save()
+            messages.success(request, "You successfully updated your account.")    
+        return redirect(f'/profile/{user_id}')
+    
+
 def new_note(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
