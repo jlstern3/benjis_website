@@ -8,30 +8,26 @@
 </head>
 <body>
     <h1>{{one_plant.name}}</h1>
-    <h1>Title of Plant</h1>
     <h2><em>{{one_plant.latin_name}}</em></h2>
-    <h2><em>Latin Name</em></h2>
-    <h3>Little blurb about origins of the plant.</h3>
-    <p><strong>Sun: </strong> Default sun requirements</p>
-    <p><strong>Water: </strong> Default watering requirements</p>
-    <p><strong>Plant Spacing: </strong>Plant grows this tall and this wide</p>
-    <p><strong>Days to Harvest: </strong>How long plant grows for</p>
-    <p><strong>pH: </strong> Ideal pH range</p>
-    <p><strong>Temperature Range: </strong> Ideal temperature range</p>
-    <p><strong>Best Transplanted or Direct Seeded?: </strong> T or DS</p>
-    <p><strong>Soil Requirements: </strong>Sandy soil, good drainage, etc.</p>
-    <p><strong>pH: </strong> Ideal pH range</p>
-    <p><strong>When to Plant: </strong> When to plant (spring/fall crop)</p>
-    <p><strong>Pruning: </strong> When/how to prune</p>
-    <p><strong>Harvesting: </strong>When to harvest</p>
-    <p><strong>Edible Parts: </strong> Parts to eat</p>
-    <p><strong>Companion Plants: </strong> Best companion plants (make each a hyperlink to their own Plant Details pg</p>
-    <p><strong>Don't Plant Near: </strong> Don't plant near</p>
-    <p><strong>Medicinal Properties: </strong> Medicinal Properties</p>
-    <p><strong>Survival/Other Uses: </strong> How else to use the plant (can link to recipes) </p>
-    <p><strong>Common Pests: </strong> Pests to watch out for (link to pest details)</p>
-    <p><strong>Type of Plant: </strong> Dropdown for herbaceous, deciduous, evergreen, conifer, vascular, tree, shrub</p>
-    <p><strong>Special Notes: </strong> Seed stratification needed? Good things to know.</p>
+    <p><strong>Sun: </strong> {{one_plant.sun}}</p>
+    <p><strong>Water: </strong> {{one_plant.water}}</p>
+    <p><strong>Plant Spacing: </strong>{{one_plant.spacing}}</p>
+    <p><strong>Days to Harvest: </strong>{{one_plant.days_to_harvest}}</p>
+    <p><strong>How to Harvest:</strong>{{one_plant.harvesting}}</p>
+    <p><strong>pH: </strong> {{one_plant.pH}}</p>
+    <p><strong>Family: </strong> {{one_plant.family}}</p>
+    <p><strong>Soil Requirements: </strong>{{one_plant.soil_reqs}}</p>
+    <p><strong>pH: </strong> {{one_plant.pH}}</p>
+    <p><strong>When to Plant: </strong> {{one_plant.planting}}</p>
+    <p><strong>Pruning: </strong> {{one_plant.pruning}}</p>
+    <p><strong>Edible Parts: </strong> {{one_plant.edibility}}</p>
+    <p><strong>Companion Plants: </strong> {{one_plant.companion_plants}}</p>
+    <p><strong>Don't Plant Near: </strong> {{one_plant.dont_plant_near}}</p>
+    <p><strong>Medicinal Properties: </strong> {{one_plant.medicinal_props}}</p>
+    <p><strong>Survival/Other Uses: </strong> {{one_plant.other_uses}} </p>
+    <p><strong>Common Pests: </strong> {{one_plant.common_pests}}</p>
+    <p><strong>Category: </strong> {{one_plant.category}}</p>
+    <p><strong>Special Notes: </strong> {{one_plant.specific_notes}}</p>
 
 </body>
 </html>
