@@ -105,14 +105,20 @@ def fruit_veg(request):
     if 'user_id' not in request.session: 
         return redirect('/')
     context={
-        'all_plants': Plant.objects.all(),
-        'current_user' : User.objects.get(id = request.session['user_id']),
+        'all_fruit_veg': Plant.objects.filter(category="fruit_veg"),
+        # 'current_user' : User.objects.get(id = request.session['user_id']),
 
     }
     return render(request, 'fruit_veg.html', context)
 
-def plant_details(request):
-    return render(request, 'plant_details.html')
+def plant_details(request, plant_id):
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
+    context={
+        'current_user' : User.objects.get(id = request.session['user_id']),
+        'one_plant' : Plant.objects.get(id=plant_id),
+    }
+    return render(request, 'plant_details.html', context)
 
 
 def houseplants(request):
@@ -125,4 +131,11 @@ def landscaping(request):
     return render(request, 'landscaping.html')
 
 def herbs(request):
-    return render(request, 'herbs.html')
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
+    context={
+        'all_plants': Plant.objects.filter(category="herbs"),
+        'current_user' : User.objects.get(id = request.session['user_id']),
+
+    }
+    return render(request, 'herbs.html', context)

@@ -13,7 +13,7 @@ urlpatterns=[
     path('profile/<int:user_id>/update', views.update_profile),
     path('notes/new', views.new_note),
     path('grow', views.grow),
-    path('grow/plant_details', views.plant_details),
+    path('grow/details/<int:plant_id>', views.plant_details),
     path('grow/houseplant_details', views.houseplant_details),
     path('grow/veg', views.fruit_veg),
     path('grow/houseplants', views.houseplants),

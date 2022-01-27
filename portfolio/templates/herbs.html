@@ -13,5 +13,8 @@
 
     <h1>Herbs</h1>
     <h3>This is where a list of herbs will go.</h3>
+    {% for plant in all_plants %}
+    <a href = "/grow/details/{{plant.id}}"><p>{{plant.name}}</p></a>
+    {% endfor %}
 </body>
 </html>
