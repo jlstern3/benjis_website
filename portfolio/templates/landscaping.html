@@ -10,8 +10,10 @@
 </head>
 <body>
     <a href="/grow"><i class="fas fa-arrow-left"></i></a>
-
     <h1>Landscaping Plants</h1>
     <h3>This will contain a list of landscaping plants.</h3>
+    {% for plant in all_plants %}
+    <a href = "/grow/details/{{plant.id}}"><p>{{plant.name}}</p></a>
+    {% endfor %}
 </body>
 </html>

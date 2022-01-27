@@ -122,13 +122,27 @@ def plant_details(request, plant_id):
 
 
 def houseplants(request):
-    return render(request, 'houseplants.html')
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
+    context={
+        'all_plants': Plant.objects.filter(category="houseplants"),
+        'current_user' : User.objects.get(id = request.session['user_id']),
+
+    }
+    return render(request, 'houseplants.html', context)
 
 def houseplant_details(request):
     return render(request, 'houseplant_details.html')
 
 def landscaping(request):
-    return render(request, 'landscaping.html')
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
+    context={
+        'all_plants': Plant.objects.filter(category="landscaping"),
+        'current_user' : User.objects.get(id = request.session['user_id']),
+
+    }
+    return render(request, 'landscaping.html', context)
 
 def herbs(request):
     # if 'user_id' not in request.session: 
