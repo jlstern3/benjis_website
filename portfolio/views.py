@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import User, Plant
 import bcrypt
 from django.contrib import messages
 from django.db.models import Count
@@ -97,10 +97,19 @@ def new_note(request):
 
 
 def grow(request): 
+    if 'user_id' not in request.session: 
+        return redirect('/')
     return render(request, 'grow.html')
 
 def fruit_veg(request):
-    return render(request, 'fruit_veg.html')
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    context={
+        'all_plants': Plant.objects.all(),
+        'current_user' : User.objects.get(id = request.session['user_id']),
+
+    }
+    return render(request, 'fruit_veg.html', context)
 
 def plant_details(request):
     return render(request, 'plant_details.html')
