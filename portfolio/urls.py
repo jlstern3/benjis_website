@@ -12,6 +12,8 @@ urlpatterns=[
     path('profile/<int:user_id>/edit', views.edit_profile),
     path('profile/<int:user_id>/update', views.update_profile),
     path('notes/new', views.new_note),
+    path('plant/new', views.new_plant),
+    path('plant/create', views.create_plant),
     path('grow', views.grow),
     path('grow/details/<int:plant_id>', views.plant_details),
     path('grow/houseplant_details', views.houseplant_details),

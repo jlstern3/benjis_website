@@ -38,6 +38,15 @@ class UserManager(models.Manager):
             errors['regex'] = "Email in wrong format."
         return errors
 
+class PlantManager(models.Manager):
+    def basic_validator(self, reqPOST):
+        errors={}
+        if len(reqPOST['name']) < 2:
+            errors['name'] = "Course name must be at least 2 characters."
+        if len(reqPOST['category']) < 5: 
+            errors['category'] = "Category must be at least 5 characters."
+        return errors
+
 class User(models.Model):
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
@@ -74,3 +83,4 @@ class Plant(models.Model):
     specific_notes = models.TextField(null = True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = PlantManager() 

@@ -95,6 +95,44 @@ def new_note(request):
     # else: 
     return render(request, 'notes.html')
 
+def new_plant(request):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    else: 
+        return render(request, 'new_plant.html')
+
+def create_plant(request):
+    if request.method == "POST":
+        errors = Plant.objects.basic_validator(request.POST)
+        if len(errors)>0:
+            for key, value in errors.items():
+                messages.error(request,value)
+            return redirect('/plant/new')
+        else:   
+            plant = Plant.objects.create(
+                name = request.POST['name'],
+                latin_name = request.POST['latin_name'],
+                sun = request.POST['sun'],
+                water = request.POST['water'],
+                spacing = request.POST['spacing'],
+                days_to_harvest = request.POST['days_to_harvest'],
+                pH = request.POST['pH'],
+                planting = request.POST['planting'],
+                family = request.POST['family'],
+                soil_reqs = request.POST['soil_reqs'],
+                companion_plants = request.POST['companion_plants'],
+                dont_plant_near = request.POST['dont_plant_near'],
+                pruning = request.POST['pruning'],
+                harvesting = request.POST['harvesting'],
+                common_pests = request.POST['common_pests'],
+                medicinal_props = request.POST['medicinal_props'],
+                edibility = request.POST['edibility'],
+                other_uses = request.POST['other_uses'],
+                specific_notes = request.POST['specific_notes'],
+                category = request.POST['category'],
+            )
+            plant.save()
+    return redirect('/home')
 
 def grow(request): 
     if 'user_id' not in request.session: 
