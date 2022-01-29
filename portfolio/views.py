@@ -133,6 +133,12 @@ def create_plant(request):
             )
     return redirect('/grow')
 
+def delete_plant(request, plant_id):
+    if request.method == "POST":
+        remove = Plant.objects.get(id=plant_id)
+        remove.delete()
+    return redirect('/grow')
+
 def grow(request): 
     if 'user_id' not in request.session: 
         return redirect('/')
