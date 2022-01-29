@@ -131,8 +131,7 @@ def create_plant(request):
                 specific_notes = request.POST['specific_notes'],
                 category = request.POST['category'],
             )
-            plant.save()
-    return redirect('/home')
+    return redirect('/grow')
 
 def grow(request): 
     if 'user_id' not in request.session: 
