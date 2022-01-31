@@ -133,6 +133,48 @@ def create_plant(request):
             )
     return redirect('/grow')
 
+def edit_plant(request, one_plant_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    else: 
+        context={
+            'current_plant' : Plant.objects.get(id=one_plant_id),
+        }
+        return render(request, 'edit_plant.html', context)
+        
+def update_plant(request, plant_id):
+        if request.method =="POST":
+            errors = User.objects.edit_validator(request.POST, plant_id)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(f'/plant/{plant_id}/edit')  
+        else:   
+            plant = Plant.objects.get(id=plant_id)
+            plant.name = request.POST['name']
+            plant.latin_name = request.POST['latin_name']
+            plant.sun = request.POST['sun']
+            plant.water = request.POST['water']
+            plant.spacing = request.POST['spacing']
+            plant.days_to_harvest = request.POST['days_to_harvest']
+            plant.pH = request.POST['pH']
+            plant.planting = request.POST['planting']
+            plant.family = request.POST['family']
+            plant.soil_reqs = request.POST['soil_reqs']
+            plant.companion_plants = request.POST['companion_plants']
+            plant.dont_plant_near = request.POST['dont_plant_near']
+            plant.pruning = request.POST['pruning']
+            plant.harvesting = request.POST['harvesting']
+            plant.common_pests = request.POST['common_pests']
+            plant.medicinal_props = request.POST['medicinal_props']
+            plant.edibility = request.POST['edibility']
+            plant.other_uses = request.POST['other_uses']
+            plant.specific_notes = request.POST['specific_notes']
+            plant.category = request.POST['category']
+            plant.save()
+            messages.success(request, "Plant successfully updated.")    
+        return redirect(f'/grow/details/{plant_id}')
+
 def delete_plant(request, plant_id):
     if request.method == "POST":
         remove = Plant.objects.get(id=plant_id)
@@ -143,6 +185,16 @@ def grow(request):
     if 'user_id' not in request.session: 
         return redirect('/')
     return render(request, 'grow.html')
+
+def herbs(request):
+    # if 'user_id' not in request.session: 
+    #     return redirect('/')
+    context={
+        'all_plants': Plant.objects.filter(category="herbs"),
+        'current_user' : User.objects.get(id = request.session['user_id']),
+
+    }
+    return render(request, 'herbs.html', context)
 
 def fruit_veg(request):
     # if 'user_id' not in request.session: 
@@ -187,12 +239,3 @@ def landscaping(request):
     }
     return render(request, 'landscaping.html', context)
 
-def herbs(request):
-    # if 'user_id' not in request.session: 
-    #     return redirect('/')
-    context={
-        'all_plants': Plant.objects.filter(category="herbs"),
-        'current_user' : User.objects.get(id = request.session['user_id']),
-
-    }
-    return render(request, 'herbs.html', context)

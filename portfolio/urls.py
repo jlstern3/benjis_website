@@ -15,6 +15,8 @@ urlpatterns=[
     path('plant/new', views.new_plant),
     path('plant/create', views.create_plant),
     path('plant/delete/<int:plant_id>', views.delete_plant),
+    path('plant/<int:plant_id>/update', views.update_plant),
+    path('plant/<int:one_plant_id>/edit', views.edit_plant),
     path('grow', views.grow),
     path('grow/details/<int:plant_id>', views.plant_details),
     path('grow/houseplant_details', views.houseplant_details),
