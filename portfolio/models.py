@@ -67,6 +67,7 @@ class Plant(models.Model):
     sun = models.CharField(max_length = 45, null=True)
     water = models.CharField(max_length = 255, null=True)
     spacing = models.CharField(max_length = 45, null=True)
+    height_width = models.CharField(max_length = 45, null=True)
     days_to_harvest = models.CharField(max_length = 45, null=True)
     pH = models.CharField(max_length = 45, null=True)
     planting = models.TextField(null = True)

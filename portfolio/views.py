@@ -114,6 +114,7 @@ def create_plant(request):
                 latin_name = request.POST['latin_name'],
                 sun = request.POST['sun'],
                 water = request.POST['water'],
+                height_width = request.POST['height_width'],
                 spacing = request.POST['spacing'],
                 days_to_harvest = request.POST['days_to_harvest'],
                 pH = request.POST['pH'],
@@ -164,6 +165,7 @@ def update_plant(request, plant_id):
         plant.latin_name = request.POST['latin_name']
         plant.sun = request.POST['sun']
         plant.water = request.POST['water']
+        plant.height_width = request.POST['height_width']
         plant.spacing = request.POST['spacing']
         plant.days_to_harvest = request.POST['days_to_harvest']
         plant.pH = request.POST['pH']

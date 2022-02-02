@@ -29,10 +29,26 @@
             <label>Latin Name <input type=text name='latin_name' id="latin_name_input"></label>
         </div>
         <div class="form-group row">
+            <label>Family<input type=text name='family' id="family_input"></label>
+        </div>
+        <div class="form-group row">
+            <label>Category</label>
+            <select name='category' id="category_input">
+                <option>Please Select Category</option>
+                <option value="fruit_veg">Fruit/Veg</option>
+                <option value="herbs">Herbs</option>
+                <option value="houseplants">Houseplants</option>
+                <option value="landscaping">Landscaping</option>
+            </select>
+        </div>
+        <div class="form-group row">
             <label>Sun <input type=text name='sun' id="sun_input"></label>
         </div>
         <div class="form-group row">
             <label>Water<input type=text name='water' id="water_input"></label>
+        </div>
+        <div class="form-group row">
+            <label>Height/Width <input type=text name='height_width' id="height_width_input"></label>
         </div>
         <div class="form-group row">
             <label>Spacing <input type=text name='spacing' id="spacing_input"></label>
@@ -45,9 +61,6 @@
         </div>
         <div class="form-group row">
             <label>Planting<input type=text name='planting' id="planting_input"></label>
-        </div>
-        <div class="form-group row">
-            <label>Family<input type=text name='family' id="family_input"></label>
         </div>
         <div class="form-group row">
             <label>Soil Requirements<input type=text name='soil_reqs' id="soil_reqs_input"></label>
@@ -79,16 +92,7 @@
         <div class="form-group row">
             <label>Specific Notes<input type=text name='specific_notes' id="specific_notes_input"></label>
         </div>
-        <div class="form-group row">
-            <label>Category</label>
-            <select name='category' id="category_input">
-                <option>Please Select Category</option>
-                <option value="fruit_veg">Fruit/Veg</option>
-                <option value="herbs">Herbs</option>
-                <option value="houseplants">Houseplants</option>
-                <option value="landscaping">Landscaping</option>
-            </select>
-        </div>
+
         <button class="btn btn-primary btn-md" id="create_plant" type="submit" value="Create Plant">Create
             Plant</button>
     </form>
