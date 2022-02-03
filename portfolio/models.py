@@ -48,6 +48,7 @@ class PlantManager(models.Manager):
         return errors
 
 class User(models.Model):
+    #plants_liked = list of plants that specific user has liked
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     location = models.TextField(null = True)
@@ -58,9 +59,7 @@ class User(models.Model):
     objects = UserManager()
 
 class Plant(models.Model):
-    # the related_name field becomes a new attribute of User class
-    # so growing_plants = list of plants the associated user is growing
-    users_growing = models.ManyToManyField(User, related_name = "growing_plants")
+    users_like = models.ManyToManyField(User, related_name = "plants_liked")
     category = models.CharField(max_length = 45)
     name = models.CharField(max_length = 45)
     latin_name = models.CharField(max_length = 45, null=True)
@@ -85,3 +84,6 @@ class Plant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = PlantManager() 
+
+    def __repr__(self):
+        return f"<Plant object: {self.name} ({self.id})>"
