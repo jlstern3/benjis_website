@@ -59,7 +59,6 @@ def profile(request, user_id):
         return redirect('/')
     context={
         'current_user' : User.objects.get(id = request.session['user_id']),
-        # 'all_challenges': Challenge.objects.all(),
     }
     return render(request, "profile.html", context)
 
@@ -192,10 +191,23 @@ def delete_plant(request, plant_id):
         remove.delete()
     return redirect('/grow')
 
+def like_plant(request, plant_id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    if request.method == "POST":
+        current_user = User.objects.get(id = request.session['user_id'])
+        one_plant = Plant.objects.get(id = plant_id)
+        current_user.plants_liked.add(one_plant)
+    return redirect(f'/profile/{current_user.id}')
+
+
 def grow(request): 
     if 'user_id' not in request.session: 
         return redirect('/')
-    return render(request, 'grow.html')
+    context={
+        'current_user': User.objects.get(id=request.session['user_id']),
+    }
+    return render(request, 'grow.html', context)
 
 def herbs(request):
     # if 'user_id' not in request.session: 
@@ -217,15 +229,12 @@ def fruit_veg(request):
     return render(request, 'fruit_veg.html', context)
 
 
-
-
 def houseplants(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     context={
         'all_plants': Plant.objects.filter(category="houseplants"),
         'current_user' : User.objects.get(id = request.session['user_id']),
-
     }
     return render(request, 'houseplants.html', context)
 

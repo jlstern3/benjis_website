@@ -37,8 +37,13 @@
         <p><strong>Category: </strong> {{plant.category}}</p>
         <p><strong>Special Notes: </strong> {{plant.specific_notes}}</p>
         <button type="submit">Remove Plant</button>
-        <a href="/plant/{{plant.id}}/edit">Edit {{plant.name}}</a>
     </form>
+
+        <a href="/plant/{{plant.id}}/edit">Edit {{plant.name}}</a>
+        <form action="/plant/{{plant.id}}/like" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-md" type="submit" value="Like Plant">Like Plant</button>
+        </form>
 </body>
 
 </html>

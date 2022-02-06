@@ -17,6 +17,7 @@ urlpatterns=[
     path('plant/delete/<int:plant_id>', views.delete_plant),
     path('plant/<int:plant_id>/update', views.update_plant),
     path('plant/<int:plant_id>/edit', views.edit_plant),
+    path('plant/<int:plant_id>/like', views.like_plant),
     path('grow', views.grow),
     path('grow/details/<int:plant_id>', views.plant_details),
     path('grow/houseplant_details', views.houseplant_details),
