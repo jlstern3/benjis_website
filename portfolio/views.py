@@ -200,6 +200,14 @@ def like_plant(request, plant_id):
         current_user.plants_liked.add(one_plant)
     return redirect(f'/profile/{current_user.id}')
 
+def unlike_plant(request, plant_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    if request.method == "POST":
+        current_user = User.objects.get(id=request.session['user_id'])
+        unlike_plant = Plant.objects.get(id=plant_id)
+        current_user.plants_liked.remove(unlike_plant)
+    return redirect(f'/profile/{current_user.id}')
 
 def grow(request): 
     if 'user_id' not in request.session: 

@@ -26,11 +26,10 @@
 
         <ul style="display: inline-block;">
 
-            <!-- <form action="/challenges/remove_accepted/{{challenge.id}}" method="POST">
+            <form action="/plant/{{plant.id}}/unlike_plant" method="POST">
                 {% csrf_token %}
-                <button type="submit" value="Remove accepted challenge"
-                    style="border: none; background-color: transparent;"><i class="bi-x-circle"></i></button>
-            </form> -->
+                <button type="submit" value="Unlike Plant"><i class="bi-x-circle"></i></button>
+            </form>
             
                 <a href="/grow/details/{{plant.id}}"><li>{{plant.name}}</li></a>
 
