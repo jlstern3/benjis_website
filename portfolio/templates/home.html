@@ -11,6 +11,9 @@
 
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 
     <title>Growing Note Consolidation</title>
 </head>
@@ -38,7 +41,8 @@
 
     </div>
     <h1>This is the home page!</h1>
-    <h4>Calculate your Hardiness Zone: <a href="https://planthardiness.ars.usda.gov/" target="_blank" rel="noopener noreferrer">https://planthardiness.ars.usda.gov/</a></h4>
+    <h4>Calculate your Hardiness Zone: <a href="https://planthardiness.ars.usda.gov/" target="_blank"
+            rel="noopener noreferrer">https://planthardiness.ars.usda.gov/</a></h4>
 
     <ul>
         <li><a href="/grow">Grow</a> -> veggies/fruit, herbs, landscaping, houseplants</li>
