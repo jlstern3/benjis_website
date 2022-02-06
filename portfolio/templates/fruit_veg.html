@@ -16,6 +16,27 @@
 </head>
 
 <body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <i class="fas fa-seedling"></i><a class="navbar-brand" href="#"> Name of App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/home">Home</a>
+                    <a class="nav-item nav-link" href="/profile/{{current_user.id}}">Profile</a>
+                    <a class="nav-item nav-link" href="/grow">Grow</a>
+                    <a class="nav-item nav-link" href="#">Process</a>
+                    <a class="nav-item nav-link" href="#">Troubleshoot</a>
+                    <a class="nav-item nav-link" href="#">Soil/Compost</a>
+                    <a class="nav-item nav-link" href="/logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
     <a href="/grow"><i class="fas fa-arrow-left"></i></a>
 
     <h1>Vegetables and Fruit</h1>

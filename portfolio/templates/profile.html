@@ -20,7 +20,9 @@
 
     <h1>{{current_user.first_name}}'s Profile</h1>
     <h1>Location: {{current_user.location}}</h1>
-    <div class="container" style="min-height: 175px;">
+    <a href="/profile/{{current_user.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
+
+    <div class="container" style="min-height: 175px; border:1px solid black">
         <h1>Plants Liked</h1>
         {% for plant in current_user.plants_liked.all %}
 
@@ -28,17 +30,16 @@
 
             <form action="/plant/{{plant.id}}/unlike_plant" method="POST">
                 {% csrf_token %}
-                <button type="submit" value="Unlike Plant"><i class="bi-x-circle"></i></button>
+                <button type="submit" value="Unlike Plant"><i class="far fa-times-circle"></i></button>
             </form>
-            
                 <a href="/grow/details/{{plant.id}}"><li>{{plant.name}}</li></a>
 
 
             </ul>
             {% endfor %}
-            <p>{{current_user.plants_liked}}</p>
     </div>
-    <a href="/profile/{{current_user.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
+    <div class="container" style="min-height: 175px; border:1px solid black">
+        <h1>Recipes Liked</h1>
 
 </body>
 
