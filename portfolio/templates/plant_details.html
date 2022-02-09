@@ -36,13 +36,14 @@
         </nav>
 
     </div>
-    <form>
+    <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
+    <!-- <form>
         <input type="button" value="Go back!" onclick="history.back()">
-    </form>
-    <a href="/plant/{{plant.id}}/edit">Edit</a>
+    </form> -->
+    <a href="/plant/{{plant.id}}/edit" style="display: block;">Edit</a>
     <form action="/plant/{{plant.id}}/like" method="POST">
         {% csrf_token %}
-        <button class="btn btn-primary btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
+        <button class="btn btn-success btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
 
             </button>
     </form>
@@ -70,7 +71,7 @@
         <p><strong>Common Pests: </strong> {{plant.common_pests}}</p>
         <p><strong>Category: </strong> {{plant.category}}</p>
         <p><strong>Special Notes: </strong> {{plant.specific_notes}}</p>
-        <button type="submit">Remove Plant</button>
+        <button type="submit" class="btn btn-danger">Remove Plant</button>
     </form>
 
 
