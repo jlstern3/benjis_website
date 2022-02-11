@@ -1,0 +1,7 @@
+<div id="plant_results">
+    {% for result in results.all %}
+    <a href="/grow/details/{{result.id}}" style="text-decoration: none; color: black;">
+        <p class="success">{{result.name}}</p>
+    </a>
+    {% endfor %}
+</div>

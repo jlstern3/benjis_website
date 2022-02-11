@@ -42,6 +42,19 @@
         </nav>
     </div>
     <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
+        <!-- SEARCH BAR -->
+        <form class="d-flex" id="plant_search" method="POST">
+            {% csrf_token %}
+            <input class="form-control me-2" id="searchbar" type="text" name="search"
+                placeholder="Search Plants">
+        </form>
+    
+        <!-- SEARCH RESULTS -->
+        <div class="col-sm-4" style="justify-content: left;">
+            <p id="csrf" csrf={{csrf_token}}></p>
+            <div id="search_results"></div>
+        </div>
+    
     <h1>All Plants</h1>
     <h3>All plants will be listed here.</h3>
     {% for plant in all_plants %}
@@ -54,6 +67,25 @@
         <p>{{plant.name}}</p>
     </a>
     {% endfor %}
+        <!-- JQUERY/AJAX -->
+        <script>
+            // $('.accept_challenge').click(function () {
+            //     $(this).html("<p>Challenge Accepted</p>");
+            // })
+            $('#plant_search').keyup(function () {
+                var plant_search = $('#searchbar').val()
+                var csrf = $('#csrf').attr("csrf")
+                $.ajax({
+                    url: "/plant_search",
+                    method: "post",
+                    data: { 'plant_search': plant_search, 'csrfmiddlewaretoken': csrf },
+                    success: function (serverResponse) {
+                        $('#search_results').html(serverResponse);
+                    }
+                })
+            })
+    
+        </script>
 </body>
 
 </html>

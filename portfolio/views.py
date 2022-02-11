@@ -209,6 +209,18 @@ def unlike_plant(request, plant_id):
         current_user.plants_liked.remove(unlike_plant)
     return redirect(f'/profile/{current_user.id}')
 
+def plant_search(request):
+    plant_search = request.POST['plant_search']
+    if len(plant_search) == 0:
+        return render(request, "blank.html")
+    if len(Plant.objects.filter(name__startswith = request.POST['plant_search'])) == 0:
+        return render(request, "no_results.html")
+    else:
+        context = {
+            'results': Plant.objects.filter(name__startswith = request.POST['plant_search'])
+        }
+    return render(request, "search_results.html", context)
+
 def grow(request): 
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -216,6 +228,12 @@ def grow(request):
         'current_user': User.objects.get(id=request.session['user_id']),
     }
     return render(request, 'grow.html', context)
+
+def all_plants(request):
+    context={
+        'all_plants': Plant.objects.all()
+    }
+    return render(request, 'all_plants.html', context)
 
 def herbs(request):
     # if 'user_id' not in request.session: 
