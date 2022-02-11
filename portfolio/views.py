@@ -83,6 +83,7 @@ def update_profile(request, user_id):
             current_user.last_name=request.POST['last_name']
             current_user.email=request.POST['email']
             current_user.location=request.POST['location']
+            current_user.profile_pic = request.POST['profile_pic']
             current_user.save()
             messages.success(request, "You successfully updated your account.")    
         return redirect(f'/profile/{user_id}')

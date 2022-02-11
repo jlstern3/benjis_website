@@ -55,6 +55,7 @@
     </form>
     <form action="/plant/delete/{{plant.id}}" method="POST">
         {% csrf_token %}
+        
         <h1>{{plant.name}}</h1>
         <h2><em>{{plant.latin_name}}</em></h2>
         <p><strong>Sun: </strong> {{plant.sun}}</p>

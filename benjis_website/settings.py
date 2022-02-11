@@ -16,9 +16,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # I added this based off CO
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 
@@ -123,8 +124,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATIC_URL = '/static/'
+
+# Where are we looking for static files? What folder within our Base directory?
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 
-STATIC_URL = '/static/'
+# Where are we looking for any images or videos?
+MEDIA_URL = '/img/'
+
+# Where should uploaded imgs/files be saved to?
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+

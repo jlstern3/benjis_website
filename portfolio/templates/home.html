@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +14,8 @@
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
     <!-- CSS -->
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
     <title>Home</title>
 </head>
 
@@ -40,7 +41,6 @@
         </nav>
     </div>
     <h1>This is the home page!</h1>
-
     <div class="container-fluid" id="home">
         <div class="row">
             <div class="col-xs-6 col-md-4 col-lg-2" style="border:2px solid green">
@@ -62,6 +62,8 @@
     </div>
     <p>Calculate your Hardiness Zone: <a href="https://planthardiness.ars.usda.gov/" target="_blank"
         rel="noopener noreferrer">https://planthardiness.ars.usda.gov/</a></p>
+
+        <img src="{% static 'img/BASIL.jpg' %}" alt="Basil picture">
 
 
 </body>
