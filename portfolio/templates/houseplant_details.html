@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQUERY/AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Houseplant Details</title>
 </head>
+
 <body>
     <h1>Houseplants</h1>
     <h2><em>Latin Name</em></h2>
@@ -22,13 +36,16 @@
     <p><strong>Transplanting: </strong> When to transplant and into how much bigger a pot</p>
     <p><strong>Harvesting: </strong>When to harvest</p>
     <p><strong>Edible Parts: </strong> Parts to eat</p>
-    <p><strong>Companion Plants: </strong> Best companion plants (make each a hyperlink to their own Plant Details pg</p>
+    <p><strong>Companion Plants: </strong> Best companion plants (make each a hyperlink to their own Plant Details pg
+    </p>
     <p><strong>Don't Plant Near: </strong> Don't plant near</p>
     <p><strong>Medicinal Properties: </strong> Medicinal Properties</p>
     <p><strong>Survival/Other Uses: </strong> How else to use the plant (can link to recipes) </p>
     <p><strong>Pests: </strong> Pests to watch out for (link to pest details)</p>
-    <p><strong>Type of Plant: </strong> Dropdown for herbaceous, deciduous, evergreen, conifer, vascular, tree, shrub</p>
+    <p><strong>Type of Plant: </strong> Dropdown for herbaceous, deciduous, evergreen, conifer, vascular, tree, shrub
+    </p>
     <p><strong>Special Notes: </strong> Seed stratification needed? Good things to know.</p>
 
 </body>
+
 </html>

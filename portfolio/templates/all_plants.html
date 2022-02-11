@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
     <!-- CSS -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>All Plants</title>
 </head>
 
@@ -56,7 +56,6 @@
         </div>
     
     <h1>All Plants</h1>
-    <h3>All plants will be listed here.</h3>
     {% for plant in all_plants %}
     <!-- <form action="/plant/delete/{{plant.id}}" method="POST">
         {% csrf_token %}
@@ -69,9 +68,6 @@
     {% endfor %}
         <!-- JQUERY/AJAX -->
         <script>
-            // $('.accept_challenge').click(function () {
-            //     $(this).html("<p>Challenge Accepted</p>");
-            // })
             $('#plant_search').keyup(function () {
                 var plant_search = $('#searchbar').val()
                 var csrf = $('#csrf').attr("csrf")
@@ -84,7 +80,6 @@
                     }
                 })
             })
-    
         </script>
 </body>
 

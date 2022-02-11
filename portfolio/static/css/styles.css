@@ -12,10 +12,17 @@
     border: 2px solid red;
 } */
 
+h1{
+    color: red;
+}
 .error{
     color: red;
 }
 
 .success{
     color: green;
+}
+
+#home{
+    background-image: url("/static/img/BASIL.jpg");
 }
