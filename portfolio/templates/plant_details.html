@@ -40,7 +40,6 @@
                 </div>
             </div>
         </nav>
-
     </div>
     <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
     <!-- <form>
@@ -50,12 +49,10 @@
     <form action="/plant/{{plant.id}}/like" method="POST">
         {% csrf_token %}
         <button class="btn btn-success btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
-
             </button>
     </form>
     <form action="/plant/delete/{{plant.id}}" method="POST">
-        {% csrf_token %}
-        
+        {% csrf_token %}        
         <h1>{{plant.name}}</h1>
         <h2><em>{{plant.latin_name}}</em></h2>
         <p><strong>Sun: </strong> {{plant.sun}}</p>
@@ -80,8 +77,6 @@
         <p><strong>Special Notes: </strong> {{plant.specific_notes}}</p>
         <button type="submit" class="btn btn-danger">Remove Plant</button>
     </form>
-
-
 </body>
 
 </html>
