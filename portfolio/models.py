@@ -47,6 +47,16 @@ class PlantManager(models.Manager):
             errors['category'] = "Category must be at least 5 characters."
         return errors
 
+
+class NoteManager(models.Manager):
+    def basic_validator(self, reqPOST):
+        errors={}
+        if len(reqPOST['title']) < 2:
+            errors['title'] = "Title must be at least 2 characters."
+        if len(reqPOST['body']) < 5: 
+            errors['body'] = "Body must be at least 5 characters."
+        return errors
+
 class User(models.Model):
     #plants_liked = list of plants that specific user has liked
     first_name = models.CharField(max_length=45)
@@ -58,6 +68,10 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
+
+    def __repr__(self):
+        return f"<User object: {self.name} ({self.id})>"
+
 
 class Plant(models.Model):
     users_like = models.ManyToManyField(User, related_name = "plants_liked")
@@ -89,3 +103,15 @@ class Plant(models.Model):
 
     def __repr__(self):
         return f"<Plant object: {self.name} ({self.id})>"
+
+
+class Note(models.Model):
+    title = models.CharField(max_length = 55)
+    body = models.TextField()
+    user_note = models.ForeignKey(User, related_name="notes_owned", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = NoteManager()
+
+    def __repr__(self):
+        return f"<Note object: {self.title} ({self.id})>"
