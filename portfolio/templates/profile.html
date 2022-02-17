@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +17,13 @@
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
     <!-- CSS -->
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
     <title>Profile</title>
 </head>
 
 <body>
     <div>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-
             <i class="fas fa-seedling"></i><a class="navbar-brand" href="#"> Name of App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +46,8 @@
 
     <h1>{{current_user.first_name}}'s Profile</h1>
     <h1>Location: {{current_user.location}}</h1>
-    <h1>Profile Picture: {{current_user.profile_pic}}</h1>
+    <h1>Profile Picture:</h1> 
+    <img class="profile_pic" src="{{current_user.profile_pic.url}}" alt="Profile picture should be here">
     <a href="/profile/{{current_user.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
 
     <div class="container" style="min-height: 175px; border:1px solid black">
@@ -69,6 +68,16 @@
     </div>
     <div class="container" style="min-height: 175px; border:1px solid black">
         <h1>Recipes Liked</h1>
+    </div>
+    <div class="container" style="min-height: 175px; border:1px solid black">
+        <h1>Notes</h1>
+        {% for note in all_notes %}
+        <ul>
+            <li>Note Title: {{note.title}}</li></a>
+            <li>Note Body: {{note.body}}</li>
+        </ul>
+            {% endfor %}
+    </div>
 
 </body>
 
