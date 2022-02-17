@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import User, Plant
+from .models import User, Plant, Note
 import bcrypt
 from django.contrib import messages
-from django.db.models import Count
+# from django.db.models import Count
 
 def index(request):
     return render(request, "login.html")
@@ -59,6 +59,7 @@ def profile(request, user_id):
         return redirect('/')
     context={
         'current_user' : User.objects.get(id = request.session['user_id']),
+        'all_notes': Note.objects.all(),
     }
     return render(request, "profile.html", context)
 
@@ -90,10 +91,24 @@ def update_profile(request, user_id):
     
 
 def new_note(request):
-    # if 'user_id' not in request.session: 
-    #     return redirect('/')
-    # else: 
-    return render(request, 'notes.html')
+    if 'user_id' not in request.session: 
+        return redirect('/')
+        
+    else: 
+        return render(request, 'new_note.html')
+
+def create_note(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    if request.method == "POST":
+        current_user = User.objects.get(id = request.session['user_id'])
+        note = Note.objects.create(
+            title = request.POST['title'],
+            body = request.POST['body'],
+            # category = request.POST['category'],
+        )
+        # current_user.notes_owned.add(note)
+    return redirect(f'/profile/{current_user.id}')
 
 def new_plant(request):
     if 'user_id' not in request.session: 
