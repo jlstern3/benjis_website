@@ -13,6 +13,8 @@ urlpatterns=[
     path('profile/<int:user_id>/update', views.update_profile),
     path('note/new', views.new_note),
     path('note/create', views.create_note),
+    path('note/<int:note_id>/edit', views.edit_note),
+    path('note/<int:note_id>/update', views.update_note),
     path('plant/new', views.new_plant),
     path('plant/create', views.create_plant),
     path('plant/delete/<int:plant_id>', views.delete_plant),

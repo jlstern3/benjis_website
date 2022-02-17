@@ -110,6 +110,32 @@ def create_note(request):
         # current_user.notes_owned.add(note)
     return redirect(f'/profile/{current_user.id}')
 
+def edit_note(request, note_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    else: 
+        context={
+            'note' : Note.objects.get(id=note_id),
+        }
+        return render(request, 'edit_note.html', context)
+
+def update_note(request, note_id):
+        # if request.method =="POST":
+        #     errors = User.objects.edit_validator(request.POST, plant_id)
+        # if len(errors) > 0:
+        #     for key, value in errors.items():
+        #         messages.error(request, value)
+        #     return redirect(f'/plant/{plant_id}/edit')  
+        # else:   
+        note = Note.objects.get(id=note_id)
+        note.title = request.POST['title']
+        note.body = request.POST['body']
+        note.save()
+        current_user = User.objects.get(id = request.session['user_id'])
+        messages.success(request, "Note successfully updated.")    
+        return redirect(f'/profile/{current_user.id}')
+
+
 def new_plant(request):
     if 'user_id' not in request.session: 
         return redirect('/')
