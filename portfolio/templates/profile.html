@@ -54,19 +54,18 @@
         <h1>Plants Liked</h1>
         {% for plant in current_user.plants_liked.all %}
         <ul style="display: inline-block;">
-            <form action="/plant/{{plant.id}}/unlike_plant" method="POST">
+            <a href="/plant/{{plant.id}}/unlike_plant"><i class="far fa-times-circle"></i></a>
+            <!-- <form action="/plant/{{plant.id}}/unlike_plant" method="POST">
                 {% csrf_token %}
-                <button type="submit" value="Unlike Plant"><i class="far fa-times-circle"></i></button>
-            </form>
+                <button type="submit" value="Unlike Plant"></button>
+            </form> -->
             <a href="/grow/details/{{plant.id}}">
                 <li>{{plant.name}}</li>
             </a>
         </ul>
         {% endfor %}
     </div>
-    <div class="container" style="min-height: 175px; border:1px solid black">
-        <h1>Recipes Liked</h1>
-    </div>
+
     <div class="container" style="min-height: 175px; border:1px solid black">
         <h1>Notes</h1>
         {% for note in all_notes %}
@@ -76,6 +75,9 @@
             <p>{{note.body}}</p>
         </div>
         {% endfor %}
+        <div class="container" style="min-height: 175px; border:1px solid black">
+            <h1>Recipes Liked</h1>
+        </div>
 </body>
 
 </html>
