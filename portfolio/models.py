@@ -108,7 +108,7 @@ class Plant(models.Model):
 class Note(models.Model):
     title = models.CharField(max_length = 55, null=True)
     body = models.TextField(null=True)
-    user_note = models.ForeignKey(User, related_name="notes_owned", on_delete=models.CASCADE, null=True)
+    written_by = models.ForeignKey(User, related_name = "notes_written", on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = NoteManager()

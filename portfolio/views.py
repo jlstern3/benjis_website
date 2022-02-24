@@ -60,7 +60,7 @@ def profile(request, user_id):
     context={
         'current_user' : User.objects.get(id = request.session['user_id']),
         'all_notes': Note.objects.all(),
-    }
+        }
     return render(request, "profile.html", context)
 
 def edit_profile(request, user_id):
@@ -93,7 +93,6 @@ def update_profile(request, user_id):
 def new_note(request):
     if 'user_id' not in request.session: 
         return redirect('/')
-        
     else: 
         return render(request, 'new_note.html')
 
@@ -105,9 +104,9 @@ def create_note(request):
         note = Note.objects.create(
             title = request.POST['title'],
             body = request.POST['body'],
-            # category = request.POST['category'],
+            written_by = User.objects.get(id = request.session['user_id']),
+            # written_by= current_user,
         )
-        # current_user.notes_owned.add(note)
     return redirect(f'/profile/{current_user.id}')
 
 def edit_note(request, note_id):
