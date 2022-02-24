@@ -23,19 +23,24 @@
 </head>
 
 <body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <i class="fas fa-seedling"></i><a class="navbar-brand" href="#"> Name of App</a>
+        </nav>
+    </div>
     <div class="container" style="max-width: 60%; margin-top: 6%;">
         <div class="page-header">
             <div class="text-center">
                 <div id="login">
                     <h1>Sign into your account</h1>
                 </div>
-                {% if messages %}
+                <!-- {% if messages %}
                 <ul>
                     {% for message in messages %}
                     <li>{{message}}</li>
                     {% endfor %}
                 </ul>
-                {% endif %}
+                {% endif %} -->
                 <form action="/login" method="POST" id="login_form">
                     {% csrf_token %}
                     <label id="email_label">Email <input type=text name="email"></label>
@@ -43,7 +48,7 @@
                     <button class="btn btn-primary btn-md" 
                         type="submit" value="Sign In">Sign In</button>
                 </form>
-                <a href="/register" id="new_user">New user? Click here</a>
+                <a href="/register" id="new_user">New user? Click here to register for free.</a>
             </div>
         </div>
     </div>
