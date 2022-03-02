@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, Plant, Note
+from .models import User, Plant, Note, Recipe
 import bcrypt
 from django.contrib import messages
 # from django.db.models import Count
@@ -139,6 +139,26 @@ def new_recipe(request):
         return redirect('/')
     else: 
         return render(request, 'new_recipe.html')
+
+def create_recipe(request):
+    if request.method == "POST":
+        errors = Plant.objects.basic_validator(request.POST)
+        if len(errors)>0:
+            for key, value in errors.items():
+                messages.error(request,value)
+            return redirect('/plant/new')
+        else:   
+            recipe = Recipe.objects.create(
+                name = request.POST['name'],
+                source = request.POST['source'],
+                ingredients = request.POST['ingredients'],
+                supplies = request.POST['supplies'],
+                total_yield = request.POST['total_yield'],
+                active_time = request.POST['active_time'],
+                passive_time = request.POST['passive_time'],
+                instructions = request.POST['instructions'],
+            )
+    return redirect('/home')
 
 def new_plant(request):
     if 'user_id' not in request.session: 
