@@ -57,6 +57,15 @@ class NoteManager(models.Manager):
             errors['body'] = "Body must be at least 5 characters."
         return errors
 
+class RecipeManager(models.Manager):
+    def basic_validator(self, reqPOST):
+        errors={}
+        if len(reqPOST['name']) < 2:
+            errors['name'] = "Name must be at least 2 characters."
+        if len(reqPOST['instructions']) < 5: 
+            errors['instructions'] = "Instructions must be at least 5 characters."
+        return errors
+
 class User(models.Model):
     #plants_liked = list of plants that specific user has liked
     first_name = models.CharField(max_length=45)
@@ -127,3 +136,7 @@ class Recipe(models.Model):
     instructions = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = RecipeManager()
+
+    def __repr__(self):
+        return f"<Recipe object: {self.name} ({self.id})>"
