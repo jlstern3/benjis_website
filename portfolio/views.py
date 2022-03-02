@@ -134,6 +134,11 @@ def update_note(request, note_id):
         messages.success(request, "Note successfully updated.")    
         return redirect(f'/profile/{current_user.id}')
 
+def new_recipe(request):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    else: 
+        return render(request, 'new_recipe.html')
 
 def new_plant(request):
     if 'user_id' not in request.session: 
