@@ -115,3 +115,15 @@ class Note(models.Model):
 
     def __repr__(self):
         return f"<Note object: {self.title} ({self.id})>"
+
+class Recipe(models.Model):
+    name = models.CharField(max_length = 45)
+    source = models.CharField(max_length = 255)
+    ingredients = models.TextField()
+    supplies = models.TextField()
+    total_yield = models.CharField(max_length = 45)
+    active_time = models.CharField(max_length = 45)
+    passive_time = models.CharField(max_length = 45)
+    instructions = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
