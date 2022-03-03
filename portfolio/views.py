@@ -159,7 +159,8 @@ def create_recipe(request):
                 passive_time = request.POST['passive_time'],
                 instructions = request.POST['instructions'],
             )
-    return redirect('/home')
+            current_user=User.objects.get(id = request.session['user_id'])
+        return redirect(f'/profile/{current_user.id}')
 
 def new_plant(request):
     if 'user_id' not in request.session: 
