@@ -80,6 +80,7 @@
             {% for recipe in current_user.recipes_written.all %}
             <div class="container" style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
                 <!-- <a href="/note/{{note.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a> -->
+                <a href="/recipe/{{recipe.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
                 <h3>{{recipe.name}}</h3>
                 <p>{{recipe.source}}</p>
                 <p>{{recipe.ingredients}}</p>

@@ -102,7 +102,7 @@ def create_note(request):
         return redirect('/')
     if request.method == "POST":
         current_user = User.objects.get(id = request.session['user_id'])
-        note = Note.objects.create(
+        Note.objects.create(
             title = request.POST['title'],
             body = request.POST['body'],
             written_by = User.objects.get(id = request.session['user_id']),
@@ -148,7 +148,7 @@ def create_recipe(request):
                 messages.error(request,value)
             return redirect('/plant/new')
         else:   
-            recipe = Recipe.objects.create(
+            Recipe.objects.create(
                 written_by = User.objects.get(id = request.session['user_id']),
                 name = request.POST['name'],
                 source = request.POST['source'],
@@ -160,6 +160,37 @@ def create_recipe(request):
                 instructions = request.POST['instructions'],
             )
             current_user=User.objects.get(id = request.session['user_id'])
+        return redirect(f'/profile/{current_user.id}')
+
+def edit_recipe(request, recipe_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    else: 
+        context={
+            'recipe' : Recipe.objects.get(id=recipe_id),
+        }
+        return render(request, 'edit_recipe.html', context)
+
+def update_recipe(request, recipe_id):
+    # if request.method == "POST":
+        # errors = Recipe.objects.basic_validator(request.POST)
+        # if len(errors)>0:
+        #     for key, value in errors.items():
+        #         messages.error(request,value)
+    #         return redirect('/plant/new')
+    # else:   
+        recipe = Recipe.objects.get(id=recipe_id)
+        recipe.name = request.POST['name']
+        recipe.source = request.POST['source']
+        recipe.ingredients = request.POST['ingredients']
+        recipe.supplies = request.POST['supplies']
+        recipe.total_yield = request.POST['total_yield']
+        recipe.active_time = request.POST['active_time']
+        recipe.passive_time = request.POST['passive_time']
+        recipe.instructions = request.POST['instructions']
+        recipe.save()
+        current_user = User.objects.get(id = request.session['user_id'])
+        messages.success(request, "Recipe successfully updated.")   
         return redirect(f'/profile/{current_user.id}')
 
 def new_plant(request):

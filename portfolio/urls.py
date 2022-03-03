@@ -17,6 +17,8 @@ urlpatterns=[
     path('note/<int:note_id>/update', views.update_note),
     path('recipe/new', views.new_recipe),
     path('recipe/create', views.create_recipe),
+    path('recipe/<int:recipe_id>/edit', views.edit_recipe),
+    path('recipe/<int:recipe_id>/update', views.update_recipe),
     path('plant/new', views.new_plant),
     path('plant/create', views.create_plant),
     path('plant/delete/<int:plant_id>', views.delete_plant),
