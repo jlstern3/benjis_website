@@ -193,6 +193,14 @@ def update_recipe(request, recipe_id):
         messages.success(request, "Recipe successfully updated.")   
         return redirect(f'/profile/{current_user.id}')
 
+def delete_recipe(request, recipe_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    recipe=Recipe.objects.get(id=recipe_id)
+    recipe.delete()
+    current_user = User.objects.get(id = request.session['user_id'])
+    return redirect(f'/profile/{current_user.id}')
+    
 def new_plant(request):
     if 'user_id' not in request.session: 
         return redirect('/')
