@@ -142,7 +142,7 @@ def new_recipe(request):
 
 def create_recipe(request):
     if request.method == "POST":
-        errors = Plant.objects.basic_validator(request.POST)
+        errors = Recipe.objects.basic_validator(request.POST)
         if len(errors)>0:
             for key, value in errors.items():
                 messages.error(request,value)
