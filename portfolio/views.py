@@ -60,6 +60,7 @@ def profile(request, user_id):
     context={
         'current_user' : User.objects.get(id = request.session['user_id']),
         'all_notes': Note.objects.all(),
+        'all_recipes': Recipe.objects.all(),
         }
     return render(request, "profile.html", context)
 
@@ -105,7 +106,6 @@ def create_note(request):
             title = request.POST['title'],
             body = request.POST['body'],
             written_by = User.objects.get(id = request.session['user_id']),
-            # written_by= current_user,
         )
     return redirect(f'/profile/{current_user.id}')
 
@@ -149,6 +149,7 @@ def create_recipe(request):
             return redirect('/plant/new')
         else:   
             recipe = Recipe.objects.create(
+                written_by = User.objects.get(id = request.session['user_id']),
                 name = request.POST['name'],
                 source = request.POST['source'],
                 ingredients = request.POST['ingredients'],

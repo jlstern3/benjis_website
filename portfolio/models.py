@@ -127,6 +127,7 @@ class Note(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length = 45)
+    written_by=models.ForeignKey(User, related_name="recipes_written", on_delete = models.CASCADE, null=True)
     source = models.CharField(max_length = 255)
     ingredients = models.TextField()
     supplies = models.TextField()
