@@ -41,12 +41,12 @@
             </div>
         </nav>
     </div>
-        <a href="/grow"><i class="fas fa-arrow-left"></i></a>
-
+        <!-- <a href="/grow"><i class="fas fa-arrow-left"></i></a> -->
     <form>
         <input type="button" value="Go Back" onclick="history.back()">
     </form>
-    <h1>Log a New recipe</h1>
+
+    <h1>Edit {{recipe.name}}</h1>
     <!-- {% if messages %}
     <ul>
         {% for message in messages %}
@@ -57,28 +57,28 @@
     <form action="/recipe/{{recipe.id}}/update" method="POST">
         {% csrf_token %}
         <div class="form-group row">
-            <label margin-top: 1%;>Name <input type=text name='name'></label>
+            <label margin-top: 1%;>Name <input type=text name='name' value="{{recipe.name}}"></label>
         </div>
         <div class="form-group row">
-            <label>Source: <input type=text name='source'></label>
+            <label>Source: <input type=text name='source' value="{{recipe.source}}"></label>
         </div>
         <div class="form-group row">
-            <label>Ingredients: <input type=text name='ingredients'></label>
+            <label>Ingredients: <input type=text name='ingredients' value="{{recipe.ingredients}}"></label>
         </div>
         <div class="form-group row">
-            <label>Supplies: <input type=text name='supplies'></label>
+            <label>Supplies: <input type=text name='supplies' value="{{recipe.supplies}}"></label>
         </div>
         <div class="form-group row">
-            <label>Yield: <input type=text name='total_yield'></label>
+            <label>Yield: <input type=text name='total_yield' value="{{recipe.total_yield}}"></label>
         </div>
         <div class="form-group row">
-            <label>Total Active Time: <input type=text name='active_time'></label>
+            <label>Total Active Time: <input type=text name='active_time' value="{{recipe.active_time}}"></label>
         </div>
         <div class="form-group row">
-            <label>Total Passive Time: <input type=text name='passive_time'></label>
+            <label>Total Passive Time: <input type=text name='passive_time' value="{{recipe.passive_time}}"></label>
         </div>
         <div class="form-group row">
-            <label>Instructions: <input type=text name='instructions'></label>
+            <label>Instructions: <input type=text name='instructions' value="{{recipe.instructions}}"></label>
         </div>
         <button class="btn btn-primary btn-md" type="submit" value="Log Recipe">Log Recipe</button>
     </form>
