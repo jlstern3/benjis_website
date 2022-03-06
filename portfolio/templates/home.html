@@ -28,15 +28,41 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="/home">Home</a>
-                    <a class="nav-item nav-link" href="/profile/{{current_user.id}}">Profile</a>
-                    <a class="nav-item nav-link" href="/grow">Grow</a>
-                    <a class="nav-item nav-link" href="#">Process</a>
-                    <a class="nav-item nav-link" href="#">Troubleshoot</a>
-                    <a class="nav-item nav-link" href="#">Soil/Compost</a>
-                    <a class="nav-item nav-link" href="/logout">Logout</a>
-                </div>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{current_user.id}}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/grow">Grow</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Troubleshoot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Soil/Compost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/settings/{{current_user.id}}">Edit Account Info</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
@@ -63,8 +89,10 @@
     </div>
     <p>Calculate your Hardiness Zone: <a href="https://planthardiness.ars.usda.gov/" target="_blank"
             rel="noopener noreferrer">https://planthardiness.ars.usda.gov/</a></p>
-    <button class="btn btn-primary"><a href="/note/new" style="text-decoration: none; color: white;">New Note</a></button>
-    <button class="btn btn-primary"><a href="/recipe/new" style="text-decoration: none; color: white;">New Recipe</a></button>
+    <button class="btn btn-primary"><a href="/note/new" style="text-decoration: none; color: white;">New
+            Note</a></button>
+    <button class="btn btn-primary"><a href="/recipe/new" style="text-decoration: none; color: white;">New
+            Recipe</a></button>
     <!-- Img below properly renders -->
     <!-- <img src="{% static 'img/BASIL.jpg' %}" alt="Basil picture"> -->
 

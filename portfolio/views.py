@@ -134,6 +134,14 @@ def update_note(request, note_id):
         messages.success(request, "Note successfully updated.")    
         return redirect(f'/profile/{current_user.id}')
 
+def delete_note(request, note_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    note=Note.objects.get(id=note_id)
+    note.delete()
+    current_user = User.objects.get(id = request.session['user_id'])
+    return redirect(f'/profile/{current_user.id}')
+
 def new_recipe(request):
     if 'user_id' not in request.session: 
         return redirect('/')
@@ -200,7 +208,7 @@ def delete_recipe(request, recipe_id):
     recipe.delete()
     current_user = User.objects.get(id = request.session['user_id'])
     return redirect(f'/profile/{current_user.id}')
-    
+
 def new_plant(request):
     if 'user_id' not in request.session: 
         return redirect('/')

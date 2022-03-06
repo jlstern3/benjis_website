@@ -15,6 +15,7 @@ urlpatterns=[
     path('note/create', views.create_note),
     path('note/<int:note_id>/edit', views.edit_note),
     path('note/<int:note_id>/update', views.update_note),
+    path('note/<int:note_id>/delete', views.delete_note),
     path('recipe/new', views.new_recipe),
     path('recipe/create', views.create_recipe),
     path('recipe/<int:recipe_id>/edit', views.edit_recipe),
