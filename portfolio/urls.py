@@ -37,4 +37,5 @@ urlpatterns=[
     path('grow/houseplants', views.houseplants),
     path('grow/landscaping', views.landscaping),
     path('grow/herbs', views.herbs),
+    path('soil', views.soil),
 ]

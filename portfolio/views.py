@@ -392,3 +392,7 @@ def landscaping(request):
     }
     return render(request, 'landscaping.html', context)
 
+def soil(request):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    return render(request, "soil_compost.html")

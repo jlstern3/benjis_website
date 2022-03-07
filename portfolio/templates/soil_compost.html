@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +17,8 @@
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/4addeb10e0.js" crossorigin="anonymous"></script>
     <!-- CSS -->
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Landscaping Plants</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -35,26 +36,10 @@
                     <a class="nav-item nav-link" href="/grow">Grow</a>
                     <a class="nav-item nav-link" href="#">Process</a>
                     <a class="nav-item nav-link" href="#">Troubleshoot</a>
-                    <a class="nav-item nav-link" href="/soil">Soil/Compost</a>
+                    <a class="nav-item nav-link active" href="/soil">Soil/Compost</a>
                     <a class="nav-item nav-link" href="/logout">Logout</a>
                 </div>
             </div>
         </nav>
-
     </div>
-    <a href="/grow"><i class="fas fa-arrow-left"></i></a>
-    <h1>Landscaping Plants</h1>
-    <h3>This will contain a list of landscaping plants.</h3>
-    {% for plant in all_plants %}
-    <form action="/plant/delete/{{plant.id}}" method="POST">
-        {% csrf_token %}
-        <button type="submit" value="Remove Plant" style="border: none; background-color: transparent;"><i
-                class="bi-x-circle"></i></button>
-    </form>
-    <a href="/grow/details/{{plant.id}}">
-        <p>{{plant.name}}</p>
-    </a>
-    {% endfor %}
-</body>
-
-</html>
+    <a href="/home"><i class="fas fa-arrow-left"></i></a>
