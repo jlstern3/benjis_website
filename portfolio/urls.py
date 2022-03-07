@@ -38,4 +38,5 @@ urlpatterns=[
     path('grow/landscaping', views.landscaping),
     path('grow/herbs', views.herbs),
     path('soil', views.soil),
+    path('process', views.process),
 ]
