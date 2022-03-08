@@ -68,6 +68,7 @@
 
     <div class="container" style="min-height: 175px; border:1px solid black">
         <h1>Notes</h1>
+        <a href="/note/new"><i class="fas fa-plus"></i></a>
         {% for note in current_user.notes_written.all %}
         <div class="container" style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
             <a href="/note/{{note.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
