@@ -226,6 +226,7 @@ def create_plant(request):
             plant = Plant.objects.create(
                 name = request.POST['name'],
                 latin_name = request.POST['latin_name'],
+                start = request.POST['start'],
                 sun = request.POST['sun'],
                 water = request.POST['water'],
                 height_width = request.POST['height_width'],
@@ -277,6 +278,7 @@ def update_plant(request, plant_id):
         plant = Plant.objects.get(id=plant_id)
         plant.name = request.POST['name']
         plant.latin_name = request.POST['latin_name']
+        plant.start = request.POST['start']
         plant.sun = request.POST['sun']
         plant.water = request.POST['water']
         plant.height_width = request.POST['height_width']

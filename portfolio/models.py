@@ -88,6 +88,7 @@ class Plant(models.Model):
     name = models.CharField(max_length = 45)
     plant_pic = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, blank=True, null=True)
     latin_name = models.CharField(max_length = 45, null=True)
+    when_to_start = models.CharField(max_length = 255, null=True)
     sun = models.CharField(max_length = 45, null=True)
     water = models.CharField(max_length = 255, null=True)
     spacing = models.CharField(max_length = 45, null=True)
