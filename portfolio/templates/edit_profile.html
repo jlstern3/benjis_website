@@ -51,26 +51,21 @@
     <form action="/profile/{{current_user.id}}/update" method="POST">
         {% csrf_token %}
         <div class="form-group row">
-            <label margin-top: 1%;>First Name <input type=text name='first_name' value="{{current_user.first_name}}"
-                    style="margin-left:63px; margin-bottom: 0.5%"></label>
+            <label margin-top: 1%;>First Name <input type=text name='first_name' value="{{current_user.first_name}}"></label>
         </div>
         <div class="form-group row">
-            <label>Last Name <input type=text name='last_name' value="{{current_user.last_name}}"
-                    style="margin-left: 63px; margin-bottom: 0.5%"></label>
+            <label>Last Name <input type=text name='last_name' value="{{current_user.last_name}}"></label>
         </div>
         <div class="form-group row">
-            <label>Email <input type=text name='email' value="{{current_user.email}}"
-                    style="margin-left: 102px; margin-bottom: 0.5%"></label>
+            <label>Email <input type=text name='email' value="{{current_user.email}}"></label>
         </div>
         <div class="form-group row">
-            <label>Location <input type=text name='location' value="{{current_user.location}}"
-                    style="margin-left: 78px; margin-bottom: 0.5%"></label>
+            <label>Location <input type=text name='location' value="{{current_user.location}}"></label>
         </div>
         <div class="form-group row">
-            <label for="img">Profile Picture <input type="file" name='profile_pic' value="{{current_user.profile_pic}}"
-                    style="margin-left: 78px; margin-bottom: 0.5%"></label>
+            <label for="img">Profile Picture <input type="file" name='profile_pic' value="{{current_user.profile_pic}}"></label>
         </div>
-        <button class="btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black;" type="submit"
+        <button class="btn btn-primary btn-md" type="submit"
             value="Update Profile">Update Profile</button>
 
     </form>

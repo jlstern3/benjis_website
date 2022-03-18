@@ -54,20 +54,20 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <form action="/plant/create" method="POST" id="register_form">
+    <form action="/plant/create" method="POST">
         {% csrf_token %}
         <div class="form-group row">
-            <label margin-top: 1%;>Name <input type=text name='name' id="name_input"></label>
+            <label margin-top: 1%;>Name <input type=text name='name'></label>
         </div>
         <div class="form-group row">
-            <label>Latin Name <input type=text name='latin_name' id="latin_name_input"></label>
+            <label>Latin Name <input type=text name='latin_name'></label>
         </div>
         <div class="form-group row">
-            <label>Family<input type=text name='family' id="family_input"></label>
+            <label>Family<input type=text name='family'></label>
         </div>
         <div class="form-group row">
             <label>Category</label>
-            <select name='category' id="category_input">
+            <select name='category'>
                 <option>Please Select Category</option>
                 <option value="fruit_veg">Fruit/Veg</option>
                 <option value="herbs">Herbs</option>
@@ -76,61 +76,61 @@
             </select>
         </div>
         <div class="form-group row">
-            <label>Transplant or Direct Seed? <input type=text name='sun' id="transplant_or_ds"></label>
+            <label>Transplant or Direct Seed? <input type=text name='sun'></label>
         </div>
         <div class="form-group row">
-            <label>When to Plant <input type=text name='start' id="start"></label>
+            <label>When to Plant <input type=text name='start'></label>
         </div>
         <div class="form-group row">
-            <label>Succession Planting <input type=text name='succession_planting' id="succession_planting"></label>
+            <label>Succession Planting <input type=text name='succession_planting'></label>
         </div>
         <div class="form-group row">
-            <label>Spacing <input type=text name='spacing' id="spacing_input"></label>
+            <label>Spacing <input type=text name='spacing'></label>
         </div>
         <div class="form-group row">
-            <label>Height/Width <input type=text name='height_width' id="height_width_input"></label>
+            <label>Height/Width <input type=text name='height_width'></label>
         </div>
         <div class="form-group row">
-            <label>Companion Plants<input type=text name='companion_plants' id="companion_plants_input"></label>
+            <label>Companion Plants<input type=text name='companion_plants'></label>
         </div>
         <div class="form-group row">
-            <label>Don't Plant Near<input type=text name='dont_plant_near' id="dont_plant_near_input"></label>
+            <label>Don't Plant Near<input type=text name='dont_plant_near'></label>
         </div>
         <div class="form-group row">
-            <label>Sun <input type=text name='sun' id="sun_input"></label>
+            <label>Sun <input type=text name='sun'></label>
         </div>
         <div class="form-group row">
-            <label>Water<input type=text name='water' id="water_input"></label>
+            <label>Water<input type=text name='water'></label>
         </div>
         <div class="form-group row">
-            <label>pH<input type=text name='pH' id="pH_input"></label>
+            <label>pH<input type=text name='pH'></label>
         </div>
         <div class="form-group row">
-            <label>Soil Requirements<input type=text name='soil_reqs' id="soil_reqs_input"></label>
+            <label>Soil Requirements<input type=text name='soil_reqs'></label>
         </div>
         <div class="form-group row">
-            <label>Pruning<input type=text name='pruning' id="pruning_input"></label>
+            <label>Pruning<input type=text name='pruning'></label>
         </div>
         <div class="form-group row">
-            <label>Day to Harvest<input type=text name='days_to_harvest' id="days_to_harvest_input"></label>
+            <label>Day to Harvest<input type=text name='days_to_harvest'></label>
         </div>
         <div class="form-group row">
-            <label>Harvesting<input type=text name='harvesting' id="harvesting_input"></label>
+            <label>Harvesting<input type=text name='harvesting'></label>
         </div>
         <div class="form-group row">
-            <label>Common Pests<input type=text name='common_pests' id="common_pests_input"></label>
+            <label>Common Pests<input type=text name='common_pests'></label>
         </div>
         <div class="form-group row">
-            <label>Medicinal Properties<input type=text name='medicinal_props' id="medicinal_props_input"></label>
+            <label>Medicinal Properties<input type=text name='medicinal_props'></label>
         </div>
         <div class="form-group row">
-            <label>Edibility<input type=text name='edibility' id="edibility_input"></label>
+            <label>Edibility<input type=text name='edibility'></label>
         </div>
         <div class="form-group row">
-            <label>Other Uses<input type=text name='other_uses' id="other_uses_input"></label>
+            <label>Other Uses<input type=text name='other_uses'></label>
         </div>
         <div class="form-group row">
-            <label>Specific Notes<input type=text name='specific_notes' id="specific_notes_input"></label>
+            <label>Specific Notes<input type=text name='specific_notes'></label>
         </div>
         <button class="btn btn-primary btn-md" id="create_plant" type="submit" value="Create Plant">Create
             Plant</button>

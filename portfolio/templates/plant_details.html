@@ -42,35 +42,36 @@
         </nav>
     </div>
     <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
-    <a href="/plant/{{plant.id}}/edit" style="display: block;">Edit</a>
+    <a href="/plant/{{plant.id}}/edit">Edit</a>
     <form action="/plant/{{plant.id}}/like" method="POST">
         {% csrf_token %}
         <button class="btn btn-success btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
             </button>
     </form>
     <form action="/plant/delete/{{plant.id}}" method="POST">
-        {% csrf_token %}        
+        {% csrf_token %}
+        <h3>{{plant.category}}</h3>        
         <h1>{{plant.name}}</h1>
         <h2><em>{{plant.latin_name}}</em></h2>
-        <p><strong>Sun: </strong> {{plant.sun}}</p>
-        <p><strong>Water: </strong> {{plant.water}}</p>
-        <p><strong>Height/Width: </strong>{{plant.height_width}}</p>
-        <p><strong>Plant Spacing: </strong>{{plant.spacing}}</p>
-        <p><strong>Days to Harvest: </strong>{{plant.days_to_harvest}}</p>
-        <p><strong>How to Harvest:</strong>{{plant.harvesting}}</p>
-        <p><strong>pH: </strong> {{plant.pH}}</p>
         <p><strong>Family: </strong> {{plant.family}}</p>
-        <p><strong>Soil Requirements: </strong>{{plant.soil_reqs}}</p>
-        <p><strong>pH: </strong> {{plant.pH}}</p>
-        <p><strong>When to Plant: </strong> {{plant.planting}}</p>
-        <p><strong>Pruning: </strong> {{plant.pruning}}</p>
-        <p><strong>Edible Parts: </strong> {{plant.edibility}}</p>
+        <p><strong>Transplant or Direct Seed?: </strong> {{plant.transplant_or_ds}}</p>
+        <p><strong>When to Start: </strong> {{plant.start}}</p>
+        <p><strong>Succession Planting: </strong> {{plant.succession_planting}}</p>
+        <p><strong>Spacing: </strong>{{plant.spacing}}</p>
+        <p><strong>Height/Width: </strong>{{plant.height_width}}</p>
         <p><strong>Companion Plants: </strong> {{plant.companion_plants}}</p>
         <p><strong>Don't Plant Near: </strong> {{plant.dont_plant_near}}</p>
-        <p><strong>Medicinal Properties: </strong> {{plant.medicinal_props}}</p>
-        <p><strong>Survival/Other Uses: </strong> {{plant.other_uses}} </p>
+        <p><strong>Sun: </strong> {{plant.sun}}</p>
+        <p><strong>Water: </strong> {{plant.water}}</p>
+        <p><strong>pH: </strong> {{plant.pH}}</p>
+        <p><strong>Soil Requirements: </strong>{{plant.soil_reqs}}</p>
+        <p><strong>Pruning: </strong> {{plant.pruning}}</p>
+        <p><strong>Days to Harvest: </strong>{{plant.days_to_harvest}}</p>
+        <p><strong>How to Harvest:</strong>{{plant.harvesting}}</p>
         <p><strong>Common Pests: </strong> {{plant.common_pests}}</p>
-        <p><strong>Category: </strong> {{plant.category}}</p>
+        <p><strong>Medicinal Properties: </strong> {{plant.medicinal_props}}</p>
+        <p><strong>Edible Parts: </strong> {{plant.edibility}}</p>
+        <p><strong>Survival/Other Uses: </strong> {{plant.other_uses}} </p>
         <p><strong>Special Notes: </strong> {{plant.specific_notes}}</p>
         <button type="submit" class="btn btn-danger">Remove Plant</button>
     </form>
