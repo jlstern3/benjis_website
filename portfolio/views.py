@@ -223,21 +223,24 @@ def create_plant(request):
                 messages.error(request,value)
             return redirect('/plant/new')
         else:   
-            plant = Plant.objects.create(
+            Plant.objects.create(
+                category = request.POST['category'],
                 name = request.POST['name'],
+                plant_pic = request.POST['plant_pic'],
                 latin_name = request.POST['latin_name'],
-                start = request.POST['start'],
-                sun = request.POST['sun'],
-                water = request.POST['water'],
-                height_width = request.POST['height_width'],
-                spacing = request.POST['spacing'],
-                days_to_harvest = request.POST['days_to_harvest'],
-                pH = request.POST['pH'],
-                planting = request.POST['planting'],
                 family = request.POST['family'],
-                soil_reqs = request.POST['soil_reqs'],
+                transplant_or_ds = request.POST['transplant_or_ds'],
+                start = request.POST['start'],
+                succession_planting = request.POST['succession_planting'],
+                spacing = request.POST['spacing'],
+                height_width = request.POST['height_width'],
                 companion_plants = request.POST['companion_plants'],
                 dont_plant_near = request.POST['dont_plant_near'],
+                sun = request.POST['sun'],
+                water = request.POST['water'],
+                pH = request.POST['pH'],
+                soil_reqs = request.POST['soil_reqs'],
+                days_to_harvest = request.POST['days_to_harvest'],
                 pruning = request.POST['pruning'],
                 harvesting = request.POST['harvesting'],
                 common_pests = request.POST['common_pests'],
@@ -245,7 +248,6 @@ def create_plant(request):
                 edibility = request.POST['edibility'],
                 other_uses = request.POST['other_uses'],
                 specific_notes = request.POST['specific_notes'],
-                category = request.POST['category'],
             )
     return redirect('/grow')
 
@@ -276,28 +278,30 @@ def update_plant(request, plant_id):
         #     return redirect(f'/plant/{plant_id}/edit')  
         # else:   
         plant = Plant.objects.get(id=plant_id)
-        plant.name = request.POST['name']
-        plant.latin_name = request.POST['latin_name']
-        plant.start = request.POST['start']
-        plant.sun = request.POST['sun']
-        plant.water = request.POST['water']
-        plant.height_width = request.POST['height_width']
-        plant.spacing = request.POST['spacing']
-        plant.days_to_harvest = request.POST['days_to_harvest']
-        plant.pH = request.POST['pH']
-        plant.planting = request.POST['planting']
-        plant.family = request.POST['family']
-        plant.soil_reqs = request.POST['soil_reqs']
-        plant.companion_plants = request.POST['companion_plants']
-        plant.dont_plant_near = request.POST['dont_plant_near']
-        plant.pruning = request.POST['pruning']
-        plant.harvesting = request.POST['harvesting']
-        plant.common_pests = request.POST['common_pests']
-        plant.medicinal_props = request.POST['medicinal_props']
-        plant.edibility = request.POST['edibility']
-        plant.other_uses = request.POST['other_uses']
-        plant.specific_notes = request.POST['specific_notes']
-        plant.category = request.POST['category']
+        plant.category = request.POST['category'],
+        plant.name = request.POST['name'],
+        plant.plant_pic = request.POST['plant_pic'],
+        plant.latin_name = request.POST['latin_name'],
+        plant.family = request.POST['family'],
+        plant.transplant_or_ds = request.POST['transplant_or_ds'],
+        plant.start = request.POST['start'],
+        plant.succession_planting = request.POST['succession_planting'],
+        plant.spacing = request.POST['spacing'],
+        plant.height_width = request.POST['height_width'],
+        plant.companion_plants = request.POST['companion_plants'],
+        plant.dont_plant_near = request.POST['dont_plant_near'],
+        plant.sun = request.POST['sun'],
+        plant.water = request.POST['water'],
+        plant.pH = request.POST['pH'],
+        plant.soil_reqs = request.POST['soil_reqs'],
+        plant.days_to_harvest = request.POST['days_to_harvest'],
+        plant.pruning = request.POST['pruning'],
+        plant.harvesting = request.POST['harvesting'],
+        plant.common_pests = request.POST['common_pests'],
+        plant.medicinal_props = request.POST['medicinal_props'],
+        plant.edibility = request.POST['edibility'],
+        plant.other_uses = request.POST['other_uses'],
+        plant.specific_notes = request.POST['specific_notes'],
         plant.save()
         messages.success(request, "Plant successfully updated.")    
         return redirect(f'/grow/details/{plant_id}')
