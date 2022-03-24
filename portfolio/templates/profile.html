@@ -45,7 +45,7 @@
     <a href="/home"><i class="fas fa-arrow-left"></i></a>
 
     <h1>{{current_user.first_name}}'s Profile</h1>
-    <h1>Location: {{current_user.location}}</h1>
+    <h4>{{current_user.location}}</h4>
     <!-- <h1>Profile Picture:</h1> -->
 
     <a href="/profile/{{current_user.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
@@ -65,38 +65,42 @@
         </ul>
         {% endfor %}
     </div>
-
+    <hr>
     <div class="container" style="min-height: 175px; border:1px solid black">
         <h1>Notes</h1>
         <a href="/note/new"><i class="fas fa-plus"></i></a>
         {% for note in current_user.notes_written.all %}
-        <div class="container" style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
+        <div class="container"
+            style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
             <a href="/note/{{note.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
             <a href="/note/{{note.id}}/delete"><i class="far fa-times-circle"></i></a>
 
             <h3>{{note.title}}</h3>
             <p>{{note.body}}</p>
         </div>
-        {% endfor %}
-        <div class="container" style="min-height: 175px; border:1px solid black">
-            <h1>Recipes</h1>
-            {% for recipe in current_user.recipes_written.all %}
-            <div class="container" style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
-                <!-- <a href="/note/{{note.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a> -->
-                <a href="/recipe/{{recipe.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
-                <a href="/recipe/{{recipe.id}}/delete"><i class="far fa-times-circle"></i></a>
-
-                <h3>{{recipe.name}}</h3>
-                <p>{{recipe.source}}</p>
-                <p>{{recipe.ingredients}}</p>
-                <p>{{recipe.supplies}}</p>
-                <p>{{recipe.total_yield}}</p>
-                <p>{{recipe.active_time}}</p>
-                <p>{{recipe.passive_time}}</p>
-                <p>{{recipe.instructions}}</p>
-            </div>
-            {% endfor %}
+    </div>
+    {% endfor %}
+    <hr>
+    <div class="container" style="min-height: 175px; border:1px solid black">
+        <h1>Recipes</h1>
+        {% for recipe in current_user.recipes_written.all %}
+        <div class="container"
+            style="width: fit-content; border:1px solid purple; padding: 20px; justify-content: left; display: inline-block; margin: 10px;">
+            <!-- <a href="/note/{{note.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a> -->
+            <a href="/recipe/{{recipe.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
+            <a href="/recipe/{{recipe.id}}/delete"><i class="far fa-times-circle"></i></a>
+            <h3>{{recipe.name}}</h3>
+            <p>{{recipe.source}}</p>
+            <p>{{recipe.ingredients}}</p>
+            <p>{{recipe.supplies}}</p>
+            <p>{{recipe.total_yield}}</p>
+            <p>{{recipe.active_time}}</p>
+            <p>{{recipe.passive_time}}</p>
+            <p>{{recipe.instructions}}</p>
         </div>
+        {% endfor %}
+    </div>
+
 </body>
 
 </html>

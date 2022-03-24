@@ -39,3 +39,8 @@ textarea{
 ul{
     list-style: none;
 }
+
+hr{
+    border: 2px solid black;
+
+}
