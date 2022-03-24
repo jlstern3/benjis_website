@@ -15,17 +15,17 @@ Including another URLconf
 """
 
 # from msilib.schema import Environment
+from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-
 # only want to host static files in django in development Environment
 # for production environment, you'd host static in AWS or something similar'
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include('portfolio.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
