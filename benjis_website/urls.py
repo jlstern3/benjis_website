@@ -18,8 +18,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-# only want to host static files in django in development Environment
-# for production environment, you'd host static in AWS or something similar'
+# only hosting static files in django for development environment -- 
+# for production environment, host static in AWS or something similar'
 from django.conf.urls.static import static
 
 urlpatterns = [
