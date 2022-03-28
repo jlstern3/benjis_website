@@ -21,6 +21,40 @@
 </head>
 
 <body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <i class="fas fa-seedling"></i><a class="navbar-brand" href="/home"> Name of App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/{{current_user.id}}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/grow">Grow</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Troubleshoot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/soil">Soil/Compost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <h1>Houseplants</h1>
     <h2><em>Latin Name</em></h2>
     <h3>Little blurb about origins of the plant.</h3>
