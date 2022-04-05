@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import User, Plant, Note, Recipe
+from .models import User, Plant, Note, Recipe, Article
 import bcrypt
+from .forms import ArticleForm
 from django.contrib import messages
 # from django.db.models import Count
 
@@ -9,6 +10,31 @@ def index(request):
 
 def register(request):
     return render(request, "register.html")
+
+def new_article(request):
+    # context ={}
+    # form = ArticleForm(request.POST)
+    # if form.is_valid():
+    #     form.save()
+    # context['form']= form
+    # OR
+    form=ArticleForm()
+    context={'form':form}
+    return render(request, "testingforms.html", context)
+
+def create_article(request):
+    form=ArticleForm(request.POST)
+    if request.method=="POST":
+        form=ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return redirect('/home')
+
+def all_articles(request):
+    context={
+        'all_articles': Article.objects.all()
+    }
+    return render(request, 'all_articles.html', context)
 
 def create_user(request):
     if request.method == "POST":

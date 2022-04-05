@@ -39,4 +39,7 @@ urlpatterns=[
     path('grow/herbs', views.herbs),
     path('soil', views.soil),
     path('process', views.process),
+    path('article/new', views.new_article),
+    path('article/create', views.create_article),
+    path('article/all', views.all_articles),
 ]

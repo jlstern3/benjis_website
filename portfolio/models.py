@@ -143,3 +143,12 @@ class Recipe(models.Model):
 
     def __repr__(self):
         return f"<Recipe object: {self.name} ({self.id})>"
+
+class Article(models.Model):
+    title=models.CharField(max_length=45)
+    body=models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __repr__(self):
+        return f"<Article object: {self.title} ({self.id})>"
