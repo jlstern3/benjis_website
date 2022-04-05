@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,7 @@
     <title>Create Note</title>
 </head>
 
-<body>
+<body style="padding: 20px;">
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <i class="fas fa-seedling"></i><a class="navbar-brand" href="/home"> Name of App</a>
@@ -43,16 +44,23 @@
     </div>
     <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
     <h1>Add a New Note</h1>
-    <form action="/note/create" method='POST'>
+    <!-- <form action="/note/create" method='POST'>
         {% csrf_token %}
         <label for="title">Title:</label>
         <input type="text" name="title"><br><br>
         <label for="body">Body:</label>
-        <textarea type="text" name="body"></textarea><br><br>
+        <textarea type="text" name="body"></textarea><br><br> -->
         <!-- Dropdown menu to categorize -->
-        <button type="submit">Save Note</button>
+        <!-- <button type="submit">Save Note</button>
 
-    </form>
+    </form> -->
+    <!-- <form action="/note/create" method="POST">
+        {% csrf_token %}
+        {{note|crispy}}
+        <button type="submit">Save Note</button>
+    </form> -->
+
+    {% crispy form form.helper %}
 </body>
 
 </html>

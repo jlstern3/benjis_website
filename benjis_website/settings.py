@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'portfolio',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,3 +138,6 @@ MEDIA_URL = '/img/'
 # Where should uploaded imgs/files be saved to?
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

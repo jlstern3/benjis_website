@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import User, Plant, Note, Recipe, Article
 import bcrypt
-from .forms import ArticleForm
+from .forms import ArticleForm, NoteForm, UserForm, RecipeForm, PlantForm
 from django.contrib import messages
 # from django.db.models import Count
 
@@ -12,12 +12,6 @@ def register(request):
     return render(request, "register.html")
 
 def new_article(request):
-    # context ={}
-    # form = ArticleForm(request.POST)
-    # if form.is_valid():
-    #     form.save()
-    # context['form']= form
-    # OR
     form=ArticleForm()
     context={'form':form}
     return render(request, "testingforms.html", context)
@@ -121,19 +115,41 @@ def new_note(request):
     if 'user_id' not in request.session: 
         return redirect('/')
     else: 
-        return render(request, 'new_note.html')
+        note=NoteForm()
+        context={'note':note}
+        return render(request, 'new_note.html', context)
 
 def create_note(request):
+    # if 'user_id' not in request.session:
+    #     return redirect('/')
+    # if request.method == "POST":
+    #     current_user = User.objects.get(id = request.session['user_id'])
+    #     Note.objects.create(
+    #         title = request.POST['title'],
+    #         body = request.POST['body'],
+    #         written_by = User.objects.get(id = request.session['user_id']),
+    #     )
+    # return redirect(f'/profile/{current_user.id}')
+    # WORKS, not using DjangoForms^^^^
+
     if 'user_id' not in request.session:
         return redirect('/')
     if request.method == "POST":
         current_user = User.objects.get(id = request.session['user_id'])
-        Note.objects.create(
-            title = request.POST['title'],
-            body = request.POST['body'],
-            written_by = User.objects.get(id = request.session['user_id']),
-        )
-    return redirect(f'/profile/{current_user.id}')
+        new_note=NoteForm(request.POST)
+        # form.written_by=current_user
+        new_note.written_by=current_user
+        if new_note.is_valid():
+            new_note.save()
+        return redirect(f'/profile/{current_user.id}')
+
+    
+    
+    if request.method=="POST":
+        form=ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return redirect('/home')
 
 def edit_note(request, note_id):
     if 'user_id' not in request.session: 
