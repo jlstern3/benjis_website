@@ -133,11 +133,12 @@ STATICFILES_DIRS = [
 ]
 
 # Where are we looking for any images or videos?
-MEDIA_URL = '/img/'
+# MEDIA_URL = '/img/'
+MEDIA_URL = '/media/'
 
 # Where should uploaded imgs/files be saved to?
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
-
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
