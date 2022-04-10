@@ -46,10 +46,7 @@
 
     <h1>{{current_user.first_name}}'s Profile</h1>
     <img src="{{current_user.profile_pic.url}}" alt="Profile Picture" style="width:200px;height:200px; border-radius:100%"></h4>
-
     <h4>{{current_user.location}}</h4>
-    <!-- <h1>Profile Picture:</h1> -->
-
     <a href="/profile/{{current_user.id}}/edit"><i class="bi-pencil" style="font-size: 2rem; color: black"></i></a>
 
     <div class="container" style="min-height: 175px; border:1px solid black">
@@ -63,6 +60,8 @@
             </form> -->
             <a href="/grow/details/{{plant.id}}">
                 <li>{{plant.name}}</li>
+                <!-- <li><img src="{{plant.img.url}}" alt="{{plant.name}} Picture" style="width:200px;height:200px; border-radius:100%"></li> -->
+
             </a>
         </ul>
         {% endfor %}
