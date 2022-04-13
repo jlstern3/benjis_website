@@ -50,7 +50,7 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <form action="/plant/{{plant.id}}/update" method="POST">
+    <form action="/admin/plant/{{plant.id}}/update" method="POST">
         {% csrf_token %}
         <div class="form-group row">
             <label>Name <input type=text name='name'></label>

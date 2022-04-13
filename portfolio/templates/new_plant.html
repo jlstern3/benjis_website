@@ -54,7 +54,7 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <form action="/plant/create" method="POST">
+    <form action="/admin/plant/create" method="POST">
         {% csrf_token %}
         <div class="form-group row">
             <label margin-top: 1%;>Name <input type=text name='name'></label>

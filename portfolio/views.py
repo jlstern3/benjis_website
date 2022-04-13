@@ -263,7 +263,7 @@ def create_plant(request):
         if len(errors)>0:
             for key, value in errors.items():
                 messages.error(request,value)
-            return redirect('/plant/new')
+            return redirect('/admin/plant/new')
         else:   
             Plant.objects.create(
                 category = request.POST['category'],

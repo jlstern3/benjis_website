@@ -21,11 +21,14 @@ urlpatterns=[
     path('recipe/<int:recipe_id>/edit', views.edit_recipe),
     path('recipe/<int:recipe_id>/update', views.update_recipe),
     path('recipe/<int:recipe_id>/delete', views.delete_recipe),
-    path('plant/new', views.new_plant),
-    path('plant/create', views.create_plant),
-    path('plant/delete/<int:plant_id>', views.delete_plant),
-    path('plant/<int:plant_id>/update', views.update_plant),
-    path('plant/<int:plant_id>/edit', views.edit_plant),
+
+    path('admin/plant/new', views.new_plant),
+    path('admin/plant/create', views.create_plant),
+    path('admin/plant/delete/<int:plant_id>', views.delete_plant),
+    path('admin/plant/<int:plant_id>/update', views.update_plant),
+    path('admin/plant/<int:plant_id>/edit', views.edit_plant),
+
+
     path('plant/<int:plant_id>/like', views.like_plant),
     path('plant_search', views.plant_search),
     path('plant/<int:plant_id>/unlike_plant', views.unlike_plant),
