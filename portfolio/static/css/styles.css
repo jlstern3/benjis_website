@@ -44,7 +44,7 @@ hr{
     border: 2px solid black;
 }
 
-.home_category{
+.home_category, .grow_category{
     border: 2px solid black;
     padding: 10px;
     height: 200px;
