@@ -41,17 +41,25 @@
             </div>
         </nav>
     </div>
-    <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
-    <a href="/plant/{{plant.id}}/edit">Edit</a>
-    <form action="/plant/{{plant.id}}/like" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-success btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
-            </button>
-    </form>
-    <form action="/plant/delete/{{plant.id}}" method="POST">
-        {% csrf_token %}
-        <h3>{{plant.category}}</h3>        
-        <h1>{{plant.name}}</h1>
+    <div container="fluid">
+        <div class="row">
+            <div class="col-4">
+                <a href="javascript:history.back()"><i class="fa-solid fa-circle-arrow-left"></i>FIX BACK ICON</a>
+            </div>
+            <div class="col-4">
+                <h1 style="display: inline-block;">{{plant.name}}</h1>
+            </div>
+            <div class="col-4">
+                <form action="/plant/{{plant.id}}/like" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-success btn-md" type="submit" value="Like Plant"><i class="far fa-star">Like</i>
+                        </button>
+                </form>            
+            </div>
+
+        </div>
+    </div>
+        <!-- <h3>{{plant.category}}</h3>         -->
         <h2><em>{{plant.latin_name}}</em></h2>
         <p><strong>Family: </strong> {{plant.family}}</p>
         <p><strong>Transplant or Direct Seed?: </strong> {{plant.transplant_or_ds}}</p>
@@ -73,7 +81,6 @@
         <p><strong>Edible Parts: </strong> {{plant.edibility}}</p>
         <p><strong>Survival/Other Uses: </strong> {{plant.other_uses}} </p>
         <p><strong>Special Notes: </strong> {{plant.specific_notes}}</p>
-        <button type="submit" class="btn btn-danger">Remove Plant</button>
     </form>
 </body>
 
