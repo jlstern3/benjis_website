@@ -15,7 +15,8 @@ class ArticleForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields="__all__"
+        exclude=['password']
+        # fields="__all__"
 
 class PlantForm(forms.ModelForm):
     class Meta:
