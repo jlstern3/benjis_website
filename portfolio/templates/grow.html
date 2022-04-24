@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Grow</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <i class="fas fa-seedling"></i><a class="navbar-brand" href="/home"> Name of App</a>
@@ -39,29 +41,34 @@
 
     <h1>Grow</h1>
     <h4>Find all the information you need to successfully grow, care for, and harvest your plants here!</h4>
-    <div class="container-fluid" id="home">
-        <div class="row">
-            <div class="col-6">
-                <p class="grow_category"><a href="/grow/all_plants">All Plants</a></p>
+    <div class="main_wrapper">
+        <div class="container-fluid" id="home">
+            <!-- <div class="page-header"> -->
+
+            <div class="row">
+                <div class="col-6">
+                    <p class="grow_category" id="all_plants"><a href="/grow/all_plants">All Plants</a></p>
+                </div>
+                <div class="col-6">
+                    <p class="grow_category" id="fruit_veg"><a href="/grow/veg">Veggies/Fruit</a></p>
+                </div>
             </div>
-            <div class="col-6">
-                <p class="grow_category"><a href="/grow/veg">Veggies/Fruit</a></p>
+            <div class="row">
+                <div class="col-6">
+                    <p class="grow_category" id="herbs"><a href="/grow/herbs">Herbs</a></p>
+                </div>
+                <div class="col-6">
+                    <p class="grow_category" id="houseplants"><a href="/grow/houseplants">Houseplants</a></p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="grow_category"><a href="/grow/herbs">Herbs</a></p>
-            </div>
-            <div class="col-6">
-                <p class="grow_category"><a href="/grow/houseplants">Houseplants</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <p class="grow_category"><a href="/grow/landscaping">Landscaping</a></p>
+            <div class="row">
+                <div class="col-6">
+                    <p class="grow_category" id="landscaping"><a href="/grow/landscaping">Landscaping</a></p>
+                </div>
             </div>
         </div>
     </div>
     <!-- <button><a href="/admin/plant/new">Create a Plant</a></button> -->
 </body>
+
 </html>

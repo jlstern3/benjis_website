@@ -12,7 +12,7 @@
     border: 2px solid red;
 } */
 
-
+/* SEARCHBAR RESULTS */
 .error{
     color: red;
 }
@@ -21,21 +21,88 @@
     color: green;
 }
 
-/* #home{
-    background-image: url("/static/img/BASIL.jpg");
-} */
-
-#grow_cat{
+/* #grow_cat{
     background-image: url("/static/img/BASIL.jpg");
     background-size: cover;
     opacity: 0.5;
+    z-index: 1;
+} */
+
+/* GROW PG CATEGORY BG IMGS */
+.grow_category, .home_category{
+    position: relative;
+    width:auto; 
+    height: auto;
+    padding-top: 3%; 
+    padding-bottom: 6%; 
 }
+.grow_category::before, .home_category::before{
+    content: '';
+    /* background-image: url("/static/img/BASIL.jpg"); */
+    background-size: cover;
+    /* object-fit: scale-down; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.8;
+    z-index: -1;
+} 
+#all_plants{
+    background-image: url("/static/img/Insect.jpg");
+    /* object-fit: scale-down; */
+}
+
+#fruit_veg{
+    background-image: url("/static/img/Solanums.jpg");
+}
+
+#herbs{
+    background-image: url("/static/img/Basil.jpg");
+}
+
+#houseplants{
+    background-image: url("/static/img/Turnips.jpg");
+}
+
+#landscaping{
+    background-image: url("/static/img/Basil.jpg");
+}
+
+/* HOME PG CATEGORY BG IMGS */
+#grow_cat{
+    background-image: url("/static/img/Basil.jpg");
+}
+
+#soil_cat{
+    background-image: url("/static/img/Basil.jpg");
+}
+
+#troubleshoot_cat{
+    background-image: url("/static/img/Basil.jpg");
+}
+
+#process_cat{
+    background-image: url("/static/img/Basil.jpg");
+}
+
 
 .profile_pic{
     border-radius: 100%;
     height: 200px;
     width: 200px;
 }
+
+
+
+
+.home_category, .grow_category{
+    border: 2px solid black;
+    padding: 10px;
+    height: 200px;
+}
+
 
 textarea{
     width: 300px;
@@ -50,8 +117,3 @@ hr{
     border: 2px solid black;
 }
 
-.home_category, .grow_category{
-    border: 2px solid black;
-    padding: 10px;
-    height: 200px;
-}
