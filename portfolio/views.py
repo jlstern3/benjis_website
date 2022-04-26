@@ -13,6 +13,8 @@ def base_child(request):
         'all_users': User.objects.all()
     }
     return render(request, "child.html", context)
+
+
 def index(request):
     return render(request, "login.html")
 
@@ -388,7 +390,7 @@ def plant_search(request):
         return render(request, "no_results.html")
     else:
         context = {
-            'results': Plant.objects.filter(name__startswith = request.POST['plant_search'])
+            'results': Plant.objects.filter(name__startswith = request.POST['plant_search']).order_by('name')
         }
     return render(request, "search_results.html", context)
 
@@ -402,7 +404,7 @@ def grow(request):
 
 def all_plants(request):
     context={
-        'all_plants': Plant.objects.all()
+        'all_plants': Plant.objects.all().order_by('name')
     }
     return render(request, 'all_plants.html', context)
 
@@ -410,7 +412,7 @@ def herbs(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     context={
-        'all_plants': Plant.objects.filter(category="herbs"),
+        'all_plants': Plant.objects.filter(category="herbs").order_by('name'),
         'current_user' : User.objects.get(id = request.session['user_id']),
 
     }
@@ -420,7 +422,7 @@ def fruit_veg(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     context={
-        'all_plants': Plant.objects.filter(category="fruit_veg"),
+        'all_plants': Plant.objects.filter(category="fruit_veg").order_by('name'),
         'current_user' : User.objects.get(id = request.session['user_id']),
     }
     return render(request, 'fruit_veg.html', context)
@@ -430,7 +432,7 @@ def houseplants(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     context={
-        'all_plants': Plant.objects.filter(category="houseplants"),
+        'all_plants': Plant.objects.filter(category="houseplants").order_by('name'),
         'current_user' : User.objects.get(id = request.session['user_id']),
     }
     return render(request, 'houseplants.html', context)
@@ -442,7 +444,7 @@ def landscaping(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
     context={
-        'all_plants': Plant.objects.filter(category="landscaping"),
+        'all_plants': Plant.objects.filter(category="landscaping").order_by('name'),
         'current_user' : User.objects.get(id = request.session['user_id']),
 
     }
