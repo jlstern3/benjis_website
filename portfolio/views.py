@@ -5,6 +5,14 @@ from .forms import ArticleForm, NoteForm, UserForm, RecipeForm, PlantForm
 from django.contrib import messages
 # from django.db.models import Count
 
+def base(request):
+    return render(request, "base.html")
+
+def base_child(request):
+    context={
+        'all_users': User.objects.all()
+    }
+    return render(request, "child.html", context)
 def index(request):
     return render(request, "login.html")
 
