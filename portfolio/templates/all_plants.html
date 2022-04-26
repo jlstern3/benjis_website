@@ -21,8 +21,9 @@
 </head>
 
 <body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
             <i class="fas fa-seedling"></i><a class="navbar-brand" href="/home"> Name of App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,22 +40,53 @@
                     <a class="nav-item nav-link" href="/logout">Logout</a>
                 </div>
             </div>
-        </nav>
-    </div>
-    <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
-        <!-- SEARCH BAR -->
-        <form class="d-flex" id="plant_search" method="POST">
-            {% csrf_token %}
-            <input class="form-control me-2" id="searchbar" type="text" name="search"
-                placeholder="Search Plants">
-        </form>
-    
-        <!-- SEARCH RESULTS -->
-        <div class="col-sm-4" style="justify-content: left;">
-            <p id="csrf" csrf={{csrf_token}}></p>
-            <div id="search_results"></div>
         </div>
-    
+    </nav>
+<div id="whole_wrap">
+    <!-- SIDEBAR -->
+    <div id="wrap_sidebar">
+        <ul class="sidebar-nav">
+            <form action="/plant/filter_all_plants" method="POST">
+                {% csrf_token %}
+                <li><i class="fab fa-pagelines"></i>
+                    <label class="label" id="category">Category:</label>
+                    <select name="region" class="dropdown-content">
+                        <option disabled selected>Select a Category</option>
+                        <option value="herbs">Herbs</option>
+                        <option value="fruits_veggies">Fruits/Veg</option>
+                        <option value="landscaping">Landscaping</option>
+                        <option value="houseplants">Houseplants</option>
+                    </select>
+                </li>
+                <li><i class="fas fa-cloud-sun"></i>
+                    <label class="label">Sun Requirements:</label>
+                    <select name="sun_reqs" class="dropdown-content">
+                        <option disabled selected>Select a Difficulty Level</option>
+                        <option value="full_sun">Full Sun</option>
+                        <option value="part_shade">Part Shade</option>
+                        <option value="full_shade">Full Shade</option>
+                    </select>
+                </li>
+                <li>
+                    <button type="submit" name="filter_submit" class="filter_submit">Submit</button>
+                </li>
+            </form>
+        </ul>
+    </div>
+</div>
+    <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i></a>
+    <!-- SEARCH BAR -->
+    <form class="d-flex" id="plant_search" method="POST">
+        {% csrf_token %}
+        <input class="form-control me-2" id="searchbar" type="text" name="search" placeholder="Search Plants">
+    </form>
+
+    <!-- SEARCH RESULTS -->
+    <div class="col-sm-4" style="justify-content: left;">
+        <p id="csrf" csrf={{csrf_token}}></p>
+        <div id="search_results"></div>
+    </div>
+
     <h1>All Plants</h1>
     {% for plant in all_plants %}
     <!-- <form action="/plant/delete/{{plant.id}}" method="POST">
@@ -66,21 +98,31 @@
         <p>{{plant.name}}</p>
     </a>
     {% endfor %}
-        <!-- JQUERY/AJAX -->
-        <script>
-            $('#plant_search').keyup(function () {
-                var plant_search = $('#searchbar').val()
-                var csrf = $('#csrf').attr("csrf")
-                $.ajax({
-                    url: "/plant_search",
-                    method: "post",
-                    data: { 'plant_search': plant_search, 'csrfmiddlewaretoken': csrf },
-                    success: function (serverResponse) {
-                        $('#search_results').html(serverResponse);
-                    }
-                })
+    <!-- JQUERY/AJAX -->
+    <script>
+        $('#plant_search').keyup(function () {
+            var plant_search = $('#searchbar').val()
+            var csrf = $('#csrf').attr("csrf")
+            $.ajax({
+                url: "/plant_search",
+                method: "post",
+                data: { 'plant_search': plant_search, 'csrfmiddlewaretoken': csrf },
+                success: function (serverResponse) {
+                    $('#search_results').html(serverResponse);
+                }
             })
-        </script>
+        })
+    </script>
+        <!-- BOOTSTRAP BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#toggle_filters').click(function (e) {
+            e.preventDefault();
+            $('#whole_wrap').toggleClass("menuDisplayed");
+        })
+    </script>
 </body>
 
 </html>

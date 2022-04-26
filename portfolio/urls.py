@@ -32,7 +32,7 @@ urlpatterns=[
     path('admin/plant/<int:plant_id>/update', views.update_plant),
     path('admin/plant/<int:plant_id>/edit', views.edit_plant),
 
-
+    path('plant/filter_all_plants', views.filter_all_plants),
     path('plant/<int:plant_id>/like', views.like_plant),
     path('plant_search', views.plant_search),
     path('plant/<int:plant_id>/unlike_plant', views.unlike_plant),
