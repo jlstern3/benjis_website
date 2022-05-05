@@ -408,6 +408,70 @@ def all_plants(request):
     }
     return render(request, 'all_plants.html', context)
 
+
+def filter_all_plants(request):
+    if request.method == 'POST':
+        if 'user_id' in request.session:
+            if 'category' in request.POST:
+                category_filter = request.POST['category']
+            else:
+                category_filter = None
+            if 'sun_reqs' in request.POST:
+                sun_filter = request.POST['sun_reqs']
+            else:
+                sun_filter = None
+            if 'water_reqs' in request.POST:
+                water_filter = request.POST['water_reqs']
+            else:
+                water_filter = None
+            if category_filter is not None:
+                if sun_filter is not None:
+                    if water_filter is not None:
+                        # all
+                        plants = Plant.objects.filter(
+                            category=category_filter, sun=sun_filter, water=water_filter
+                        )
+                    else:
+                        # category & sun
+                        plants = Plant.objects.filter(
+                            category=category_filter, sun=sun_filter
+                        )
+                elif water_filter is not None:
+                    # category & water
+                    plants = Plant.objects.filter(
+                        category=category_filter, water=water_filter
+                    )
+                else:
+                    # category
+                    plants = Plant.objects.filter(
+                        category=category_filter
+                    )
+            elif sun_filter is not None:
+                if water_filter is not None:
+                    # sun & water
+                    plants = Plant.objects.filter(
+                        sun=sun_filter, water=water_filter
+                    )
+                else:
+                    # sun
+                    plants = Plant.objects.filter(
+                        sun=sun_filter
+                    )
+            elif water_filter is not None:
+                # water
+                plants = Plant.objects.filter(
+                    water=water_filter
+                )
+            else:
+                plants = Plant.objects.all()
+            context = {
+                'current_user': User.objects.get(id=request.session['user_id']),
+                'all_plants': plants,
+            }
+            return render(request, 'all_plants.html', context)
+        return redirect('/')
+    return redirect('/grow/all_plants')
+
 def herbs(request):
     # if 'user_id' not in request.session: 
     #     return redirect('/')
